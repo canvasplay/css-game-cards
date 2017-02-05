@@ -1,0 +1,170 @@
+/**
+ *  CARD GROUPS
+ *
+ */
+
+
+$_MAX_GROUP_COUNT: 25;
+
+
+.card-group{
+  
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  
+}
+
+.card-group.inline{
+  display: inline-flex;
+}
+
+
+
+
+
+
+/* MODE ROW & COLUMN + REVERSE */
+
+.card-group.reverse{ flex-direction: row }
+.card-group.reverse{ flex-direction: row-reverse }
+
+.card-group.mode-column{ flex-direction: column }
+.card-group.mode-column.reverse{ flex-direction: column-reverse }
+
+
+.card-group:not(.reverse) > .card-group:not(:last-child),
+.card-group:not(.reverse) > .card:not(:last-child){
+  margin-right: .15 * $_CARD_WIDTH
+}
+
+.card-group.reverse > .card-group:not(:last-child),
+.card-group.reverse > .card:not(:last-child){
+  margin-left: .15 * $_CARD_WIDTH
+}
+
+.card-group.mode-column:not(.reverse) > .card-group:not(:last-child),
+.card-group.mode-column:not(.reverse) > .card:not(:last-child){
+  margin-bottom: .15 * $_CARD_WIDTH
+}
+.card-group.mode-column.reverse > .card-group:not(:last-child),
+.card-group.mode-column.reverse > .card:not(:last-child){
+  margin-top: .15 * $_CARD_WIDTH
+}
+
+
+/* OVERLAPPING CARDS in GROUP */
+$_OVERLAP_VALUES: 0, 25, 50, 75, 90, 95;
+
+@each $value in $_OVERLAP_VALUES{
+  
+  $percent: $value / 100;
+  
+  .card-group.overlap-#{$value}:not(.reverse) .card:not(:last-child){ margin-right: (-1 * $percent * $_CARD_WIDTH) }
+  .card-group.overlap-#{$value}.reverse .card:not(:last-child){ margin-left: (-1 * $percent * $_CARD_WIDTH) }
+  
+  .card-group.mode-column.overlap-#{$value}:not(.reverse) .card:not(:last-child){ margin-bottom: (-1 * $percent * $_CARD_HEIGHT) }
+  .card-group.mode-column.overlap-#{$value}.reverse .card:not(:last-child){ margin-top: (-1 * $percent * $_CARD_HEIGHT) }
+  
+}
+
+
+
+/* CARDS ALIGNMENT */
+.card-group.align-center{ justify-content: center }
+.card-group.align-start{ justify-content: flex-start }
+.card-group.align-end{ justify-content: flex-end }
+.card-group.reverse.align-start{ justify-content: flex-end }
+.card-group.reverse.align-end{ justify-content: flex-start }
+
+
+
+/* GROUP RANDOM + REVERSE */
+
+.card-group.mode-random{
+  
+}
+
+
+@for $nth from 1 through $_MAX_GROUP_COUNT{
+  
+    $rnd: random(40) - 20;
+    $offsetX: random($_CARD_WIDTH)*0.1 - ($_CARD_WIDTH * 0.1);
+    $offsetY: random($_CARD_HEIGHT)*0.05 - ($_CARD_HEIGHT * 0.05);
+    
+    $angle: #{$rnd}deg;
+    
+    .card-group.mode-random .card:nth-child(#{$nth}){
+        transform: rotateZ($angle) translateX($offsetX) translateY($offsetY);
+    }
+    
+}
+
+
+
+
+
+/* GROUP HAND */
+
+.card-group.mode-hand {
+
+}
+
+@for $n from 1 through $_MAX_GROUP_COUNT {
+  
+  @for $i from 1 through $n {
+    
+      $angle: decimal-round( -20deg + (40deg/$n) * $i );
+      $angle_reversed: decimal-round( -20deg + (40deg/$n) * ($n - $i) );
+      
+      $z: ( ( $i - ($n*0.5) ) * $n ) / 90;
+      $rads: rad($z);
+      $offsetY: decimal-round( -1em * cos($rads), 2);
+      
+      $a: ( ( $i - ($n*0.5deg) ) * $n ) * 0.5;
+      
+      .card-group.mode-hand.count-#{$n} .card{
+        &:nth-child(#{$i}) {
+          transform: rotateZ($angle) translateY($offsetY);
+        }
+      }
+      
+      .card-group.mode-hand.reverse.count-#{$n} .card{
+        &:nth-child(#{$i}) {
+          transform: rotateZ($angle_reversed) translateY($offsetY);
+        }
+      }
+      
+  }
+    
+}
+
+
+
+
+@for $n from 1 through $_MAX_GROUP_COUNT {
+  
+  @for $i from 1 through $n {
+    
+      $angle: decimal-round( -15deg + (30deg/$n) * $i );
+      $z: ( ( $i - ($n*0.5) ) * $n ) / 90;
+      $rads: rad($z);
+      $offsetY: decimal-round( -15px * cos($z), 2);
+      
+      .card-group.mode-hand.count-#{$n} .card.rotate{
+        &:nth-child(#{$i}) {
+          transform: rotateZ(90 - $angle) translateY($offsetY);
+        }
+      }
+      
+  }
+    
+}
+
+.card-group.mode-hand .card.selected{
+  transform: translateY(-3em) translateX(-0.1em) rotateZ(-5deg) !important;
+}
+
+.card-group.mode-hand .card.rotate.selected{
+  transform: translateY(-3em) translateX(-0.1em) rotateZ(85deg) !important;
+}

@@ -1,0 +1,13 @@
+@mixin noselect{
+  touch-callout: none;
+  user-select: none;
+}
+
+
+$_CARD_WIDTH: 4em;
+$_CARD_HEIGHT: 6em;
+
+$transition-duration: 0.5s;
+$transition-fn: cubic-bezier(0.175, 0.825, 0.3, 1.15);
+$transition: $transition-duration $transition-fn;
+

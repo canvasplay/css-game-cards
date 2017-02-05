@@ -1,0 +1,236 @@
+
+$_DEBUG_COLOR: #00BCD4;
+
+
+.cards-debug{
+    
+    perspective: 30em;
+    perspective-origin: 10em 10em;
+    width: 20em;
+    height: 20em;
+    margin: 0 auto;
+
+}
+
+.cards-debug .card{
+  font-size: 1.4em;
+}
+
+.cards-debug .card,
+.cards-debug .card .turner,
+.cards-debug .card .flipper,
+.cards-debug .card .back,
+.cards-debug .card .face{
+  color: $_DEBUG_COLOR;
+}
+
+.cards-debug .card .back,
+.cards-debug .card .face{
+  line-height: $_CARD_HEIGHT;
+  font-weight: 800;
+}
+
+
+
+
+/**
+ *  LAYER NAME LABELS
+ *
+ */
+
+.cards-debug .card .back:before,
+.cards-debug .card .face:before{
+  line-height: 1;
+  font-weight: normal;
+}
+
+.cards-debug .card:before,
+.cards-debug .card .turner:before,
+.cards-debug .card .flipper:before,
+.cards-debug .card .back:before,
+.cards-debug .card .face:before{
+  content: '';
+  font-family: Consolas, monaco, monospace;
+  display: inline-block;
+  color: $_DEBUG_COLOR;
+  position: absolute;
+  left: 0;
+  top: -1.5em;
+  font-size: 0.5em;
+  transition: 0.6s;
+  opacity: 0;
+}
+
+.cards-debug .card:before,
+.cards-debug .card .turner:before,
+.cards-debug .card .flipper:before,
+.cards-debug .card .back:before,
+.cards-debug .card .face:before{
+  content: "." attr(data-name)
+}
+
+
+
+
+/**
+ *  OUTLINES
+ *
+ */
+
+.cards-debug .card:after,
+.cards-debug .card .turner:after,
+.cards-debug .card .flipper:after{
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0; left: 0;
+  border: 0.1em solid $_DEBUG_COLOR;
+  border-radius: 0.2em;
+	width: $_CARD_WIDTH;
+	height: $_CARD_HEIGHT;
+	color: $_DEBUG_COLOR;
+}
+
+.cards-debug .card:after,
+.cards-debug .card .turner:after,
+.cards-debug .card .flipper:after{
+  border-style: dashed;
+  transition: 0.6s;
+  opacity: 0;
+}
+
+.cards-debug .card .turner:after,
+.cards-debug .card .flipper:after{
+  background: rgba(0,221,255,0.25);
+  border-width: 0.05em;
+}
+
+
+
+
+/*
+
+DEBUG 3D
+
+*/
+
+
+.cards-debug .card{
+  perspective: initial;
+  transform-style: preserve-3d;
+}
+
+
+.cards-debug .card .back,
+.cards-debug .card .face{
+  backface-visibility: visible;
+  transition: 0.6s;
+  background: #FFF;
+  color: #333;
+}
+.cards-debug .card .back{
+  transform: translateZ(0px) rotateY(180deg) ;
+}
+.cards-debug .card .face{
+  transform: translateZ(1px) rotateY(0deg) ;
+}
+
+
+
+
+.cards-debug .card .face{
+	box-shadow: 0 0.1em 0.7em rgba(0, 0, 0, 0.3);
+}
+.cards-debug .card .back{
+	box-shadow: 0 0.1em 0.7em rgba(0, 0, 0, 0);
+}
+
+.cards-debug .card.flip .face{
+	box-shadow: 0 0.1em 0.7em rgba(0, 0, 0, 0);
+}
+.cards-debug .card.flip .back{
+	box-shadow: 0 0.1em 0.7em rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+.cards-debug .card .face:after{
+  border-width: 0.2em;
+}
+.cards-debug .card.flip .back:after{
+  border-width: 0.2em;
+}
+.cards-debug .card.flip .face:after{
+  border-width: 0.1em;
+}
+
+
+
+.cards-debug .card.debug3D:before,
+.cards-debug .card.debug3D .turner:before,
+.cards-debug .card.debug3D .flipper:before,
+.cards-debug .card.debug3D .back:before,
+.cards-debug .card.debug3D .face:before{
+  opacity: 1;
+}
+
+
+.cards-debug .card.debug3D:after,
+.cards-debug .card.debug3D .turner:after,
+.cards-debug .card.debug3D .flipper:after{
+  opacity: 1;
+}
+
+
+.cards-debug .card.debug3D{
+  transform: translateX(-2em) translateY(2em) translateZ(0em) rotateX(30deg) rotateY(30deg) rotateZ(-20deg);
+}
+
+  .cards-debug .card.debug3D .turner{
+  	transform: translateZ(3em) rotateZ(0deg);
+  }
+  .cards-debug .card.debug3D .flipper{
+  	transform: translateZ(5em) rotateY(0deg);
+  }
+  
+    .cards-debug .card.debug3D .back{
+      transform: translateZ(-2em) rotateY(180deg) ;
+    }
+    
+    .cards-debug .card.debug3D .face{
+      transform: translateZ(2em) rotateY(0deg) ;
+    }
+
+
+
+
+/* FLIP */
+.cards-debug .card.debug3D.flip .flipper{
+	transform: translateZ(5em) rotateY(180deg) ;
+}
+
+
+/* SPIN */
+.cards-debug .card.debug3D.spin .flipper{
+	transform: translateZ(5em) rotateY(360deg) ;
+}
+
+/* SPIN + FLIP */
+.cards-debug .card.debug3D.spin.flip .flipper{
+	transform: translateZ(5em) rotateY(540deg) ;
+}
+
+
+.cards-debug .card.debug3D.rotate .turner{
+   transform: translateZ(3em) rotateZ(90deg);
+}
+
+.cards-debug .card.debug3D.twist .turner{
+   transform: translateZ(3em) rotateZ(360deg);
+}
+
+.cards-debug .card.debug3D.rotate.twist .turner{
+   transform: translateZ(3em) rotateZ(450deg);
+}

@@ -1,0 +1,85 @@
+
+
+.card,
+.card .turner,
+.card .flipper,
+.card .back,
+.card .face{
+	position: relative;
+	width: $_CARD_WIDTH;
+	height: $_CARD_HEIGHT;
+}
+
+.card{
+    display: inline-block;
+    touch-action: none;
+    text-align: center;
+    transform-origin: 50% 50%;
+    transition: transform 0.6s;
+    z-index: 0;
+}
+
+
+.card .turner,
+.card .flipper{
+	transform-style: preserve-3d;
+	transform-origin: 50% 50%;
+	transition: $transition;
+}
+	
+.card .back,
+.card .face {
+	position: absolute;
+	top: 0; left: 0;
+	backface-visibility: hidden;
+}
+
+.card .flipper .back {
+  transform: rotateY(180deg);
+  z-index: 2;
+}
+
+.card .flipper .face {
+  transform: rotateY(0deg);
+  z-index: 1;
+}
+
+
+
+
+
+/* BASIC CARD THEME */
+
+.card-group .card .face,
+.card-group .card .back{
+	box-shadow: 0 0.1em 0.7em rgba(0,0,0,0.3);
+	border-radius: 0.25em;
+	background: #FFF;
+	line-height: $_CARD_HEIGHT;
+}
+
+
+.card .face > i,
+.card .back > i{
+  vertical-align: text-bottom;
+}
+
+
+.card.selected .face,
+.card.selected .back{
+  color: #00DDFF;
+}
+
+.card.selected .face:after,
+.card.selected .back:after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0.15em solid #00DDFF;
+    border-radius: 0.2em;
+    width: 4em;
+    height: 6em;
+}
+
