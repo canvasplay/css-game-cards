@@ -243,104 +243,104 @@
 
 /* GROUP RANDOM + REVERSE */
 .card-group.mode-random .card:nth-child(1) {
-  -webkit-transform: rotateZ(-8deg) translateX(-0.1em) translateY(-0.1em);
-          transform: rotateZ(-8deg) translateX(-0.1em) translateY(-0.1em); }
+  -webkit-transform: rotateZ(10deg) translateX(-0.1em) translateY(-0.25em);
+          transform: rotateZ(10deg) translateX(-0.1em) translateY(-0.25em); }
 
 .card-group.mode-random .card:nth-child(2) {
-  -webkit-transform: rotateZ(-9deg) translateX(-0.1em) translateY(0em);
-          transform: rotateZ(-9deg) translateX(-0.1em) translateY(0em); }
+  -webkit-transform: rotateZ(-17deg) translateX(-0.3em) translateY(-0.1em);
+          transform: rotateZ(-17deg) translateX(-0.3em) translateY(-0.1em); }
 
 .card-group.mode-random .card:nth-child(3) {
-  -webkit-transform: rotateZ(-19deg) translateX(-0.3em) translateY(-0.05em);
-          transform: rotateZ(-19deg) translateX(-0.3em) translateY(-0.05em); }
+  -webkit-transform: rotateZ(10deg) translateX(-0.2em) translateY(-0.1em);
+          transform: rotateZ(10deg) translateX(-0.2em) translateY(-0.1em); }
 
 .card-group.mode-random .card:nth-child(4) {
-  -webkit-transform: rotateZ(15deg) translateX(0em) translateY(0em);
-          transform: rotateZ(15deg) translateX(0em) translateY(0em); }
+  -webkit-transform: rotateZ(-7deg) translateX(-0.1em) translateY(-0.25em);
+          transform: rotateZ(-7deg) translateX(-0.1em) translateY(-0.25em); }
 
 .card-group.mode-random .card:nth-child(5) {
-  -webkit-transform: rotateZ(-11deg) translateX(-0.1em) translateY(-0.15em);
-          transform: rotateZ(-11deg) translateX(-0.1em) translateY(-0.15em); }
+  -webkit-transform: rotateZ(7deg) translateX(-0.2em) translateY(-0.05em);
+          transform: rotateZ(7deg) translateX(-0.2em) translateY(-0.05em); }
 
 .card-group.mode-random .card:nth-child(6) {
-  -webkit-transform: rotateZ(12deg) translateX(-0.2em) translateY(-0.1em);
-          transform: rotateZ(12deg) translateX(-0.2em) translateY(-0.1em); }
+  -webkit-transform: rotateZ(13deg) translateX(0em) translateY(-0.2em);
+          transform: rotateZ(13deg) translateX(0em) translateY(-0.2em); }
 
 .card-group.mode-random .card:nth-child(7) {
-  -webkit-transform: rotateZ(-8deg) translateX(-0.3em) translateY(-0.25em);
-          transform: rotateZ(-8deg) translateX(-0.3em) translateY(-0.25em); }
+  -webkit-transform: rotateZ(6deg) translateX(-0.1em) translateY(-0.15em);
+          transform: rotateZ(6deg) translateX(-0.1em) translateY(-0.15em); }
 
 .card-group.mode-random .card:nth-child(8) {
-  -webkit-transform: rotateZ(17deg) translateX(-0.2em) translateY(-0.05em);
-          transform: rotateZ(17deg) translateX(-0.2em) translateY(-0.05em); }
+  -webkit-transform: rotateZ(7deg) translateX(-0.1em) translateY(-0.25em);
+          transform: rotateZ(7deg) translateX(-0.1em) translateY(-0.25em); }
 
 .card-group.mode-random .card:nth-child(9) {
-  -webkit-transform: rotateZ(7deg) translateX(-0.3em) translateY(0em);
-          transform: rotateZ(7deg) translateX(-0.3em) translateY(0em); }
+  -webkit-transform: rotateZ(-11deg) translateX(-0.3em) translateY(-0.25em);
+          transform: rotateZ(-11deg) translateX(-0.3em) translateY(-0.25em); }
 
 .card-group.mode-random .card:nth-child(10) {
-  -webkit-transform: rotateZ(15deg) translateX(-0.2em) translateY(-0.25em);
-          transform: rotateZ(15deg) translateX(-0.2em) translateY(-0.25em); }
+  -webkit-transform: rotateZ(-4deg) translateX(-0.3em) translateY(-0.15em);
+          transform: rotateZ(-4deg) translateX(-0.3em) translateY(-0.15em); }
 
 .card-group.mode-random .card:nth-child(11) {
-  -webkit-transform: rotateZ(11deg) translateX(-0.2em) translateY(-0.05em);
-          transform: rotateZ(11deg) translateX(-0.2em) translateY(-0.05em); }
+  -webkit-transform: rotateZ(-16deg) translateX(-0.1em) translateY(-0.2em);
+          transform: rotateZ(-16deg) translateX(-0.1em) translateY(-0.2em); }
 
 .card-group.mode-random .card:nth-child(12) {
-  -webkit-transform: rotateZ(15deg) translateX(0em) translateY(-0.05em);
-          transform: rotateZ(15deg) translateX(0em) translateY(-0.05em); }
+  -webkit-transform: rotateZ(7deg) translateX(-0.2em) translateY(-0.1em);
+          transform: rotateZ(7deg) translateX(-0.2em) translateY(-0.1em); }
 
 .card-group.mode-random .card:nth-child(13) {
-  -webkit-transform: rotateZ(-7deg) translateX(-0.3em) translateY(-0.2em);
-          transform: rotateZ(-7deg) translateX(-0.3em) translateY(-0.2em); }
+  -webkit-transform: rotateZ(-10deg) translateX(0em) translateY(-0.2em);
+          transform: rotateZ(-10deg) translateX(0em) translateY(-0.2em); }
 
 .card-group.mode-random .card:nth-child(14) {
-  -webkit-transform: rotateZ(-11deg) translateX(-0.2em) translateY(-0.1em);
-          transform: rotateZ(-11deg) translateX(-0.2em) translateY(-0.1em); }
+  -webkit-transform: rotateZ(-12deg) translateX(-0.2em) translateY(-0.05em);
+          transform: rotateZ(-12deg) translateX(-0.2em) translateY(-0.05em); }
 
 .card-group.mode-random .card:nth-child(15) {
-  -webkit-transform: rotateZ(16deg) translateX(0em) translateY(-0.15em);
-          transform: rotateZ(16deg) translateX(0em) translateY(-0.15em); }
+  -webkit-transform: rotateZ(18deg) translateX(0em) translateY(-0.15em);
+          transform: rotateZ(18deg) translateX(0em) translateY(-0.15em); }
 
 .card-group.mode-random .card:nth-child(16) {
-  -webkit-transform: rotateZ(2deg) translateX(-0.2em) translateY(0em);
-          transform: rotateZ(2deg) translateX(-0.2em) translateY(0em); }
+  -webkit-transform: rotateZ(-19deg) translateX(-0.1em) translateY(-0.05em);
+          transform: rotateZ(-19deg) translateX(-0.1em) translateY(-0.05em); }
 
 .card-group.mode-random .card:nth-child(17) {
-  -webkit-transform: rotateZ(18deg) translateX(0em) translateY(-0.1em);
-          transform: rotateZ(18deg) translateX(0em) translateY(-0.1em); }
+  -webkit-transform: rotateZ(-11deg) translateX(-0.3em) translateY(-0.15em);
+          transform: rotateZ(-11deg) translateX(-0.3em) translateY(-0.15em); }
 
 .card-group.mode-random .card:nth-child(18) {
-  -webkit-transform: rotateZ(17deg) translateX(0em) translateY(-0.1em);
-          transform: rotateZ(17deg) translateX(0em) translateY(-0.1em); }
+  -webkit-transform: rotateZ(-11deg) translateX(-0.1em) translateY(-0.1em);
+          transform: rotateZ(-11deg) translateX(-0.1em) translateY(-0.1em); }
 
 .card-group.mode-random .card:nth-child(19) {
-  -webkit-transform: rotateZ(6deg) translateX(-0.1em) translateY(-0.25em);
-          transform: rotateZ(6deg) translateX(-0.1em) translateY(-0.25em); }
+  -webkit-transform: rotateZ(-5deg) translateX(-0.3em) translateY(0em);
+          transform: rotateZ(-5deg) translateX(-0.3em) translateY(0em); }
 
 .card-group.mode-random .card:nth-child(20) {
-  -webkit-transform: rotateZ(-11deg) translateX(-0.3em) translateY(-0.1em);
-          transform: rotateZ(-11deg) translateX(-0.3em) translateY(-0.1em); }
+  -webkit-transform: rotateZ(15deg) translateX(-0.2em) translateY(-0.1em);
+          transform: rotateZ(15deg) translateX(-0.2em) translateY(-0.1em); }
 
 .card-group.mode-random .card:nth-child(21) {
-  -webkit-transform: rotateZ(19deg) translateX(-0.1em) translateY(0em);
-          transform: rotateZ(19deg) translateX(-0.1em) translateY(0em); }
+  -webkit-transform: rotateZ(9deg) translateX(0em) translateY(-0.2em);
+          transform: rotateZ(9deg) translateX(0em) translateY(-0.2em); }
 
 .card-group.mode-random .card:nth-child(22) {
-  -webkit-transform: rotateZ(18deg) translateX(-0.3em) translateY(-0.1em);
-          transform: rotateZ(18deg) translateX(-0.3em) translateY(-0.1em); }
+  -webkit-transform: rotateZ(20deg) translateX(0em) translateY(-0.1em);
+          transform: rotateZ(20deg) translateX(0em) translateY(-0.1em); }
 
 .card-group.mode-random .card:nth-child(23) {
-  -webkit-transform: rotateZ(-6deg) translateX(0em) translateY(-0.1em);
-          transform: rotateZ(-6deg) translateX(0em) translateY(-0.1em); }
+  -webkit-transform: rotateZ(0deg) translateX(-0.3em) translateY(-0.15em);
+          transform: rotateZ(0deg) translateX(-0.3em) translateY(-0.15em); }
 
 .card-group.mode-random .card:nth-child(24) {
-  -webkit-transform: rotateZ(-17deg) translateX(-0.1em) translateY(-0.05em);
-          transform: rotateZ(-17deg) translateX(-0.1em) translateY(-0.05em); }
+  -webkit-transform: rotateZ(-18deg) translateX(-0.3em) translateY(-0.05em);
+          transform: rotateZ(-18deg) translateX(-0.3em) translateY(-0.05em); }
 
 .card-group.mode-random .card:nth-child(25) {
-  -webkit-transform: rotateZ(0deg) translateX(-0.1em) translateY(0em);
-          transform: rotateZ(0deg) translateX(-0.1em) translateY(0em); }
+  -webkit-transform: rotateZ(-19deg) translateX(-0.3em) translateY(-0.1em);
+          transform: rotateZ(-19deg) translateX(-0.3em) translateY(-0.1em); }
 
 /* GROUP HAND */
 .card-group.mode-hand.count-1 .card:nth-child(1) {
