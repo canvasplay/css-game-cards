@@ -1,21 +1,19 @@
 {
   "name": "game-cards",
-  "version": "1.0.0",
+  "version": "1.2.3",
   "description": "CSS3 game cards framework",
-  "main": "index.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "clopezdepablo",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/canvasplay/game-cards.git"
+  },
   "devDependencies": {
-    "autoprefixer": "^6.5.3",
     "grunt": "^1.0.1",
     "grunt-autoprefixer": "^3.0.4",
-    "grunt-contrib-connect": "^1.0.2",
+    "grunt-bump": "^0.8.0",
     "grunt-contrib-jst": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-postcss": "^0.8.0",
     "grunt-sass": "^1.2.1"
   }
 }
