@@ -34,10 +34,20 @@ module.exports = function(grunt) {
                     'dist/index.css': 'dist/index.css'
                 }
             }
+        },
+        
+        bump: {
+          options: {
+            files: ['package.json'],
+            commit: false,
+            createTag: false,
+            push: false
+          }
         }
         
     });
     
+    grunt.loadNpmTasks('grunt-bump');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-autoprefixer');
