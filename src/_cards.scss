@@ -35,21 +35,21 @@ $_MAX_GROUP_COUNT: 25;
 
 .card-group:not(.reverse) > .card-group:not(:last-child),
 .card-group:not(.reverse) > .card:not(:last-child){
-  margin-right: .15 * $_CARD_WIDTH
+  margin-right: .15 * $card-width
 }
 
 .card-group.reverse > .card-group:not(:last-child),
 .card-group.reverse > .card:not(:last-child){
-  margin-left: .15 * $_CARD_WIDTH
+  margin-left: .15 * $card-width
 }
 
 .card-group.mode-column:not(.reverse) > .card-group:not(:last-child),
 .card-group.mode-column:not(.reverse) > .card:not(:last-child){
-  margin-bottom: .15 * $_CARD_WIDTH
+  margin-bottom: .15 * $card-width
 }
 .card-group.mode-column.reverse > .card-group:not(:last-child),
 .card-group.mode-column.reverse > .card:not(:last-child){
-  margin-top: .15 * $_CARD_WIDTH
+  margin-top: .15 * $card-width
 }
 
 
@@ -60,11 +60,11 @@ $_OVERLAP_VALUES: 0, 25, 50, 75, 90, 95;
   
   $percent: $value / 100;
   
-  .card-group.overlap-#{$value}:not(.reverse) .card:not(:last-child){ margin-right: (-1 * $percent * $_CARD_WIDTH) }
-  .card-group.overlap-#{$value}.reverse .card:not(:last-child){ margin-left: (-1 * $percent * $_CARD_WIDTH) }
+  .card-group.overlap-#{$value}:not(.reverse) .card:not(:last-child){ margin-right: (-1 * $percent * $card-width) }
+  .card-group.overlap-#{$value}.reverse .card:not(:last-child){ margin-left: (-1 * $percent * $card-width) }
   
-  .card-group.mode-column.overlap-#{$value}:not(.reverse) .card:not(:last-child){ margin-bottom: (-1 * $percent * $_CARD_HEIGHT) }
-  .card-group.mode-column.overlap-#{$value}.reverse .card:not(:last-child){ margin-top: (-1 * $percent * $_CARD_HEIGHT) }
+  .card-group.mode-column.overlap-#{$value}:not(.reverse) .card:not(:last-child){ margin-bottom: (-1 * $percent * $card-height) }
+  .card-group.mode-column.overlap-#{$value}.reverse .card:not(:last-child){ margin-top: (-1 * $percent * $card-height) }
   
 }
 
@@ -89,8 +89,8 @@ $_OVERLAP_VALUES: 0, 25, 50, 75, 90, 95;
 @for $nth from 1 through $_MAX_GROUP_COUNT{
   
     $rnd: random(40) - 20;
-    $offsetX: random($_CARD_WIDTH)*0.1 - ($_CARD_WIDTH * 0.1);
-    $offsetY: random($_CARD_HEIGHT)*0.05 - ($_CARD_HEIGHT * 0.05);
+    $offsetX: random($card-width)*0.1 - ($card-width * 0.1);
+    $offsetY: random($card-height)*0.05 - ($card-height * 0.05);
     
     $angle: #{$rnd}deg;
     
