@@ -5,7 +5,7 @@
  *  Version - 0.1
  *  Licensed under the MIT license - http://opensource.org/licenses/MIT
  *
- *  Copyright (c) 2016 Carlos Lopez de Pablo Garcia
+ *  Copyright (c) 2017 Carlos Lopez de Pablo Garcia
  *
  */
 .card,
@@ -82,6 +82,61 @@
   border-radius: 0.2em;
   width: 4em;
   height: 6em; }
+
+/**
+ *  CARD TRANSFORMS
+ *  applicable to .card element
+ *
+ */
+.card {
+  -webkit-perspective: 6em;
+          perspective: 6em;
+  -webkit-perspective-origin: 50% 50%;
+          perspective-origin: 50% 50%;
+  -webkit-transform-origin: 2em 3em;
+          transform-origin: 2em 3em; }
+
+/**
+ *  TURNER TRANSFORMS
+ *  applicable to .turner layer
+ *
+ */
+.card .turner {
+  -webkit-transform: rotateZ(0deg);
+          transform: rotateZ(0deg); }
+
+.card.rotate .turner {
+  -webkit-transform: rotateZ(90deg);
+          transform: rotateZ(90deg); }
+
+.card.twist .turner {
+  -webkit-transform: rotateZ(360deg);
+          transform: rotateZ(360deg); }
+
+.card.twist.rotate .turner {
+  -webkit-transform: rotateZ(450deg);
+          transform: rotateZ(450deg); }
+
+/**
+ *  FLIPPER TRANSFORMS
+ *  applicable to .flipper layer
+ *
+ */
+.card .flipper {
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg); }
+
+.card.flip .flipper {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg); }
+
+.card.spin .flipper {
+  -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg); }
+
+.card.spin.flip .flipper {
+  -webkit-transform: rotateY(540deg);
+          transform: rotateY(540deg); }
 
 /**
  *  CARD GROUPS
@@ -243,104 +298,104 @@
 
 /* GROUP RANDOM + REVERSE */
 .card-group.mode-random .card:nth-child(1) {
-  -webkit-transform: rotateZ(10deg) translateX(-0.1em) translateY(-0.25em);
-          transform: rotateZ(10deg) translateX(-0.1em) translateY(-0.25em); }
+  -webkit-transform: rotateZ(8deg) translateX(0em) translateY(-0.2em);
+          transform: rotateZ(8deg) translateX(0em) translateY(-0.2em); }
 
 .card-group.mode-random .card:nth-child(2) {
-  -webkit-transform: rotateZ(-17deg) translateX(-0.3em) translateY(-0.1em);
-          transform: rotateZ(-17deg) translateX(-0.3em) translateY(-0.1em); }
+  -webkit-transform: rotateZ(7deg) translateX(0em) translateY(-0.2em);
+          transform: rotateZ(7deg) translateX(0em) translateY(-0.2em); }
 
 .card-group.mode-random .card:nth-child(3) {
-  -webkit-transform: rotateZ(10deg) translateX(-0.2em) translateY(-0.1em);
-          transform: rotateZ(10deg) translateX(-0.2em) translateY(-0.1em); }
+  -webkit-transform: rotateZ(-9deg) translateX(-0.1em) translateY(0em);
+          transform: rotateZ(-9deg) translateX(-0.1em) translateY(0em); }
 
 .card-group.mode-random .card:nth-child(4) {
-  -webkit-transform: rotateZ(-7deg) translateX(-0.1em) translateY(-0.25em);
-          transform: rotateZ(-7deg) translateX(-0.1em) translateY(-0.25em); }
+  -webkit-transform: rotateZ(7deg) translateX(-0.3em) translateY(-0.2em);
+          transform: rotateZ(7deg) translateX(-0.3em) translateY(-0.2em); }
 
 .card-group.mode-random .card:nth-child(5) {
-  -webkit-transform: rotateZ(7deg) translateX(-0.2em) translateY(-0.05em);
-          transform: rotateZ(7deg) translateX(-0.2em) translateY(-0.05em); }
+  -webkit-transform: rotateZ(-5deg) translateX(-0.2em) translateY(0em);
+          transform: rotateZ(-5deg) translateX(-0.2em) translateY(0em); }
 
 .card-group.mode-random .card:nth-child(6) {
-  -webkit-transform: rotateZ(13deg) translateX(0em) translateY(-0.2em);
-          transform: rotateZ(13deg) translateX(0em) translateY(-0.2em); }
+  -webkit-transform: rotateZ(-15deg) translateX(-0.3em) translateY(0em);
+          transform: rotateZ(-15deg) translateX(-0.3em) translateY(0em); }
 
 .card-group.mode-random .card:nth-child(7) {
-  -webkit-transform: rotateZ(6deg) translateX(-0.1em) translateY(-0.15em);
-          transform: rotateZ(6deg) translateX(-0.1em) translateY(-0.15em); }
+  -webkit-transform: rotateZ(20deg) translateX(-0.1em) translateY(-0.15em);
+          transform: rotateZ(20deg) translateX(-0.1em) translateY(-0.15em); }
 
 .card-group.mode-random .card:nth-child(8) {
-  -webkit-transform: rotateZ(7deg) translateX(-0.1em) translateY(-0.25em);
-          transform: rotateZ(7deg) translateX(-0.1em) translateY(-0.25em); }
+  -webkit-transform: rotateZ(-13deg) translateX(-0.1em) translateY(-0.25em);
+          transform: rotateZ(-13deg) translateX(-0.1em) translateY(-0.25em); }
 
 .card-group.mode-random .card:nth-child(9) {
-  -webkit-transform: rotateZ(-11deg) translateX(-0.3em) translateY(-0.25em);
-          transform: rotateZ(-11deg) translateX(-0.3em) translateY(-0.25em); }
+  -webkit-transform: rotateZ(8deg) translateX(-0.1em) translateY(-0.2em);
+          transform: rotateZ(8deg) translateX(-0.1em) translateY(-0.2em); }
 
 .card-group.mode-random .card:nth-child(10) {
-  -webkit-transform: rotateZ(-4deg) translateX(-0.3em) translateY(-0.15em);
-          transform: rotateZ(-4deg) translateX(-0.3em) translateY(-0.15em); }
+  -webkit-transform: rotateZ(0deg) translateX(-0.3em) translateY(-0.1em);
+          transform: rotateZ(0deg) translateX(-0.3em) translateY(-0.1em); }
 
 .card-group.mode-random .card:nth-child(11) {
-  -webkit-transform: rotateZ(-16deg) translateX(-0.1em) translateY(-0.2em);
-          transform: rotateZ(-16deg) translateX(-0.1em) translateY(-0.2em); }
+  -webkit-transform: rotateZ(17deg) translateX(-0.3em) translateY(-0.05em);
+          transform: rotateZ(17deg) translateX(-0.3em) translateY(-0.05em); }
 
 .card-group.mode-random .card:nth-child(12) {
-  -webkit-transform: rotateZ(7deg) translateX(-0.2em) translateY(-0.1em);
-          transform: rotateZ(7deg) translateX(-0.2em) translateY(-0.1em); }
+  -webkit-transform: rotateZ(13deg) translateX(0em) translateY(-0.1em);
+          transform: rotateZ(13deg) translateX(0em) translateY(-0.1em); }
 
 .card-group.mode-random .card:nth-child(13) {
-  -webkit-transform: rotateZ(-10deg) translateX(0em) translateY(-0.2em);
-          transform: rotateZ(-10deg) translateX(0em) translateY(-0.2em); }
+  -webkit-transform: rotateZ(11deg) translateX(0em) translateY(-0.1em);
+          transform: rotateZ(11deg) translateX(0em) translateY(-0.1em); }
 
 .card-group.mode-random .card:nth-child(14) {
-  -webkit-transform: rotateZ(-12deg) translateX(-0.2em) translateY(-0.05em);
-          transform: rotateZ(-12deg) translateX(-0.2em) translateY(-0.05em); }
+  -webkit-transform: rotateZ(20deg) translateX(-0.1em) translateY(-0.25em);
+          transform: rotateZ(20deg) translateX(-0.1em) translateY(-0.25em); }
 
 .card-group.mode-random .card:nth-child(15) {
-  -webkit-transform: rotateZ(18deg) translateX(0em) translateY(-0.15em);
-          transform: rotateZ(18deg) translateX(0em) translateY(-0.15em); }
+  -webkit-transform: rotateZ(0deg) translateX(-0.3em) translateY(-0.25em);
+          transform: rotateZ(0deg) translateX(-0.3em) translateY(-0.25em); }
 
 .card-group.mode-random .card:nth-child(16) {
-  -webkit-transform: rotateZ(-19deg) translateX(-0.1em) translateY(-0.05em);
-          transform: rotateZ(-19deg) translateX(-0.1em) translateY(-0.05em); }
+  -webkit-transform: rotateZ(18deg) translateX(-0.1em) translateY(-0.2em);
+          transform: rotateZ(18deg) translateX(-0.1em) translateY(-0.2em); }
 
 .card-group.mode-random .card:nth-child(17) {
-  -webkit-transform: rotateZ(-11deg) translateX(-0.3em) translateY(-0.15em);
-          transform: rotateZ(-11deg) translateX(-0.3em) translateY(-0.15em); }
+  -webkit-transform: rotateZ(-3deg) translateX(-0.1em) translateY(-0.2em);
+          transform: rotateZ(-3deg) translateX(-0.1em) translateY(-0.2em); }
 
 .card-group.mode-random .card:nth-child(18) {
+  -webkit-transform: rotateZ(-6deg) translateX(-0.3em) translateY(-0.15em);
+          transform: rotateZ(-6deg) translateX(-0.3em) translateY(-0.15em); }
+
+.card-group.mode-random .card:nth-child(19) {
+  -webkit-transform: rotateZ(-13deg) translateX(-0.1em) translateY(-0.25em);
+          transform: rotateZ(-13deg) translateX(-0.1em) translateY(-0.25em); }
+
+.card-group.mode-random .card:nth-child(20) {
   -webkit-transform: rotateZ(-11deg) translateX(-0.1em) translateY(-0.1em);
           transform: rotateZ(-11deg) translateX(-0.1em) translateY(-0.1em); }
 
-.card-group.mode-random .card:nth-child(19) {
-  -webkit-transform: rotateZ(-5deg) translateX(-0.3em) translateY(0em);
-          transform: rotateZ(-5deg) translateX(-0.3em) translateY(0em); }
-
-.card-group.mode-random .card:nth-child(20) {
-  -webkit-transform: rotateZ(15deg) translateX(-0.2em) translateY(-0.1em);
-          transform: rotateZ(15deg) translateX(-0.2em) translateY(-0.1em); }
-
 .card-group.mode-random .card:nth-child(21) {
-  -webkit-transform: rotateZ(9deg) translateX(0em) translateY(-0.2em);
-          transform: rotateZ(9deg) translateX(0em) translateY(-0.2em); }
+  -webkit-transform: rotateZ(3deg) translateX(-0.3em) translateY(-0.15em);
+          transform: rotateZ(3deg) translateX(-0.3em) translateY(-0.15em); }
 
 .card-group.mode-random .card:nth-child(22) {
-  -webkit-transform: rotateZ(20deg) translateX(0em) translateY(-0.1em);
-          transform: rotateZ(20deg) translateX(0em) translateY(-0.1em); }
+  -webkit-transform: rotateZ(-11deg) translateX(0em) translateY(-0.25em);
+          transform: rotateZ(-11deg) translateX(0em) translateY(-0.25em); }
 
 .card-group.mode-random .card:nth-child(23) {
-  -webkit-transform: rotateZ(0deg) translateX(-0.3em) translateY(-0.15em);
-          transform: rotateZ(0deg) translateX(-0.3em) translateY(-0.15em); }
+  -webkit-transform: rotateZ(19deg) translateX(-0.1em) translateY(-0.1em);
+          transform: rotateZ(19deg) translateX(-0.1em) translateY(-0.1em); }
 
 .card-group.mode-random .card:nth-child(24) {
-  -webkit-transform: rotateZ(-18deg) translateX(-0.3em) translateY(-0.05em);
-          transform: rotateZ(-18deg) translateX(-0.3em) translateY(-0.05em); }
+  -webkit-transform: rotateZ(-14deg) translateX(-0.2em) translateY(0em);
+          transform: rotateZ(-14deg) translateX(-0.2em) translateY(0em); }
 
 .card-group.mode-random .card:nth-child(25) {
-  -webkit-transform: rotateZ(-19deg) translateX(-0.3em) translateY(-0.1em);
-          transform: rotateZ(-19deg) translateX(-0.3em) translateY(-0.1em); }
+  -webkit-transform: rotateZ(15deg) translateX(-0.1em) translateY(-0.2em);
+          transform: rotateZ(15deg) translateX(-0.1em) translateY(-0.2em); }
 
 /* GROUP HAND */
 .card-group.mode-hand.count-1 .card:nth-child(1) {
@@ -4250,92 +4305,6 @@
 .card-group.mode-hand .card.rotate.selected {
   -webkit-transform: translateY(-3em) translateX(-0.1em) rotateZ(85deg) !important;
           transform: translateY(-3em) translateX(-0.1em) rotateZ(85deg) !important; }
-
-/**
- *  CARD TRANSFORMS
- *
- */
-/* CARD ACTIONS */
-.card {
-  -webkit-perspective: 6em;
-          perspective: 6em;
-  -webkit-perspective-origin: 50% 50%;
-          perspective-origin: 50% 50%;
-  -webkit-transform-origin: 2em 3em;
-          transform-origin: 2em 3em; }
-
-/**
- *  TURNER TRANSFORMS
- *  to be applied to .turner
- *
- */
-.card .turner {
-  -webkit-transform: rotateZ(0deg);
-          transform: rotateZ(0deg); }
-
-.card.rotate .turner {
-  -webkit-transform: rotateZ(90deg);
-          transform: rotateZ(90deg); }
-
-.card.twist .turner {
-  -webkit-transform: rotateZ(360deg);
-          transform: rotateZ(360deg); }
-
-.card.twist.rotate .turner {
-  -webkit-transform: rotateZ(450deg);
-          transform: rotateZ(450deg); }
-
-/**
- *  FLIPPER TRANSFORMS
- *  to be applied to .flipper
- *
- */
-/* IDLE */
-.card .flipper {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg); }
-
-/* FLIP */
-.card.flip .flipper {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg); }
-
-/* SPIN */
-.card.spin .flipper {
-  -webkit-transform: rotateY(360deg);
-          transform: rotateY(360deg); }
-
-/* SPIN + FLIP */
-.card.spin.flip .flipper {
-  -webkit-transform: rotateY(540deg);
-          transform: rotateY(540deg); }
-
-/* SELECTED */
-.card.selected.rotate {
-  -webkit-transform: translateY(-1em) rotateZ(80deg);
-          transform: translateY(-1em) rotateZ(80deg); }
-
-.card.selected.twist {
-  -webkit-transform: translateY(-1em) rotateZ(350deg);
-          transform: translateY(-1em) rotateZ(350deg); }
-
-.card.selected.rotate.twist {
-  -webkit-transform: translateY(-1em) rotateZ(440deg);
-          transform: translateY(-1em) rotateZ(440deg); }
-
-/* REVEAL FX */
-.card.reveal {
-  -webkit-perspective: 16em;
-          perspective: 16em; }
-
-.card.reveal.selected {
-  -webkit-transform: translateY(-1em) rotateZ(0deg) !important;
-          transform: translateY(-1em) rotateZ(0deg) !important;
-  z-index: 1; }
-
-.card.reveal .flipper {
-  -webkit-transform: translateY(-4em) rotateX(15deg) rotateZ(-3deg) rotateY(-920deg) rotateZ(0deg) scale(1.5) !important;
-          transform: translateY(-4em) rotateX(15deg) rotateZ(-3deg) rotateY(-920deg) rotateZ(0deg) scale(1.5) !important; }
 
 .cards-debug {
   -webkit-perspective: 30em;

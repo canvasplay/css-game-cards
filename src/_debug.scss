@@ -1,5 +1,5 @@
 
-$_DEBUG_COLOR: #00BCD4;
+$color-debug: #00BCD4;
 
 
 .cards-debug{
@@ -21,12 +21,12 @@ $_DEBUG_COLOR: #00BCD4;
 .cards-debug .card .flipper,
 .cards-debug .card .back,
 .cards-debug .card .face{
-  color: $_DEBUG_COLOR;
+  color: $color-debug;
 }
 
 .cards-debug .card .back,
 .cards-debug .card .face{
-  line-height: $_CARD_HEIGHT;
+  line-height: $card-height;
   font-weight: 800;
 }
 
@@ -52,7 +52,7 @@ $_DEBUG_COLOR: #00BCD4;
   content: '';
   font-family: Consolas, monaco, monospace;
   display: inline-block;
-  color: $_DEBUG_COLOR;
+  color: $color-debug;
   position: absolute;
   left: 0;
   top: -1.5em;
@@ -84,11 +84,11 @@ $_DEBUG_COLOR: #00BCD4;
   display: block;
   position: absolute;
   top: 0; left: 0;
-  border: 0.1em solid $_DEBUG_COLOR;
+  border: 0.1em solid $color-debug;
   border-radius: 0.2em;
-	width: $_CARD_WIDTH;
-	height: $_CARD_HEIGHT;
-	color: $_DEBUG_COLOR;
+	width: $card-width;
+	height: $card-height;
+	color: $color-debug;
 }
 
 .cards-debug .card:after,

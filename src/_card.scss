@@ -6,8 +6,8 @@
 .card .back,
 .card .face{
 	position: relative;
-	width: $_CARD_WIDTH;
-	height: $_CARD_HEIGHT;
+	width: $card-width;
+	height: $card-height;
 }
 
 .card{
@@ -55,7 +55,7 @@
 	box-shadow: 0 0.1em 0.7em rgba(0,0,0,0.3);
 	border-radius: 0.25em;
 	background: #FFF;
-	line-height: $_CARD_HEIGHT;
+	line-height: $card-height;
 }
 
 

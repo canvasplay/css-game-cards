@@ -1,23 +1,22 @@
 /**
  *  CARD TRANSFORMS
+ *  applicable to .card element
  *
  */
  
- 
-/* CARD ACTIONS */
 .card{
   perspective: 6em;
   perspective-origin: 50% 50%;
-  transform-origin: $_CARD_WIDTH*.5 $_CARD_HEIGHT*.5;
+  transform-origin: $card-width*.5 $card-height*.5;
 }
-
 
 
 /**
  *  TURNER TRANSFORMS
- *  to be applied to .turner
+ *  applicable to .turner layer
  *
  */
+ 
 .card .turner{
    transform: rotateZ(0deg);
 }
@@ -38,61 +37,22 @@
  
 /**
  *  FLIPPER TRANSFORMS
- *  to be applied to .flipper
+ *  applicable to .flipper layer
  *
  */
 
-/* IDLE */
 .card .flipper{
-	transform: rotateY(0deg) ;
+	transform: rotateY(0deg);
 }
 
-/* FLIP */
 .card.flip .flipper{
-	transform: rotateY(180deg) ;
+	transform: rotateY(180deg);
 }
 
-/* SPIN */
 .card.spin .flipper{
-	transform: rotateY(360deg) ;
+	transform: rotateY(360deg);
 }
 
-/* SPIN + FLIP */
 .card.spin.flip .flipper{
-	transform: rotateY(540deg) ;
-}
-
-
-
-
-
-/* SELECTED */
-
-.card.selected.rotate{
-   transform: translateY(-1em) rotateZ(80deg);
-}
-
-.card.selected.twist{
-   transform: translateY(-1em) rotateZ(350deg);
-}
-
-.card.selected.rotate.twist{
-   transform: translateY(-1em) rotateZ(440deg);
-}
-
-
-
-/* REVEAL FX */
-
-.card.reveal {
-  perspective: 16em;
-}
-
-.card.reveal.selected{
-  transform: translateY(-1em) rotateZ(0deg) !important ;
-  z-index: 1;
-}
-
-.card.reveal .flipper {
-    transform: translateY(-4em) rotateX(15deg) rotateZ(-3deg) rotateY(-920deg) rotateZ(0deg) scale(1.5) !important ;
+	transform: rotateY(540deg);
 }

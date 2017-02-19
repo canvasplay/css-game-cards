@@ -1,0 +1,36 @@
+/* BASIC CARD THEME */
+
+.card{
+  
+  .face,
+  .back{
+  	box-shadow: 0 0.1em 0.7em rgba(0,0,0,0.3);
+  	border-radius: 0.25em;
+  	background: #FFF;
+  	line-height: $card-height;
+  	
+  	> i{
+      vertical-align: text-bottom;
+    }
+
+  }
+  
+  &.selected{
+    
+    .face:after,
+    .back:after{
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 0.15em solid #00DDFF;
+      border-radius: 0.2em;
+      width: 4em;
+      height: 6em;
+    }
+    
+  }
+    
+}
+

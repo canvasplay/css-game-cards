@@ -10,13 +10,14 @@
  */
 
 
-@import 'math.scss';
-@import 'config.scss';
-@import 'card.scss';
-@import 'group.scss';
-@import 'transform.scss';
-@import 'debug.scss';
-@import 'poker.scss';
+@import 'math';
+@import 'vars';
+@import 'card';
+@import 'transform';
+@import 'cards';
+@import 'theme';
+@import 'debug';
+@import 'poker';
 
 
 body{
