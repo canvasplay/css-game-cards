@@ -28,12 +28,18 @@ module.exports = function(grunt) {
           }
         },
         
-        autoprefixer: {
-            dist: {
-                files: {
-                    'dist/index.css': 'dist/index.css'
-                }
-            }
+
+        postcss: {
+          options: {
+            map: true,
+            processors: [
+              require('autoprefixer')(),
+              require('cssnano')()
+            ]
+          },
+          dist: {
+            src: 'dist/*.css'
+          }
         },
         
         bump: {
@@ -50,10 +56,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-bump');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-autoprefixer');
+    grunt.loadNpmTasks('grunt-postcss');
     
     grunt.registerTask('default', ['styles', 'watch']);
-    grunt.registerTask('styles', ['sass','autoprefixer']);
+    grunt.registerTask('styles', ['sass','postcss']);
     
 
 };

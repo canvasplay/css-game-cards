@@ -1,103 +1,203 @@
-/**
- *  CARD GROUPS
- *
- */
-
-
-$_MAX_GROUP_COUNT: 25;
-
-
-.card-group{
-  
-  text-align: center;
-  justify-content: center;
+.cards{
   display: flex;
+}
+
+.cards,
+.cards--row{
+
+  align-items: center;
+  justify-content: center;
   
-}
-
-.card-group.inline{
-  display: inline-flex;
-}
-
-
-
-
-
-
-/* MODE ROW & COLUMN + REVERSE */
-
-.card-group.reverse{ flex-direction: row }
-.card-group.reverse{ flex-direction: row-reverse }
-
-.card-group.mode-column{ flex-direction: column }
-.card-group.mode-column.reverse{ flex-direction: column-reverse }
-
-
-.card-group:not(.reverse) > .card-group:not(:last-child),
-.card-group:not(.reverse) > .card:not(:last-child){
-  margin-right: .15 * $card-width
-}
-
-.card-group.reverse > .card-group:not(:last-child),
-.card-group.reverse > .card:not(:last-child){
-  margin-left: .15 * $card-width
-}
-
-.card-group.mode-column:not(.reverse) > .card-group:not(:last-child),
-.card-group.mode-column:not(.reverse) > .card:not(:last-child){
-  margin-bottom: .15 * $card-width
-}
-.card-group.mode-column.reverse > .card-group:not(:last-child),
-.card-group.mode-column.reverse > .card:not(:last-child){
-  margin-top: .15 * $card-width
-}
-
-
-/* OVERLAPPING CARDS in GROUP */
-$_OVERLAP_VALUES: 0, 25, 50, 75, 90, 95;
-
-@each $value in $_OVERLAP_VALUES{
+  flex-direction: row;
   
-  $percent: $value / 100;
+  &.cards--align-left,
+  &.cards--align-center-left{
+    justify-content: flex-start;
+    align-items: center;
+  }
   
-  .card-group.overlap-#{$value}:not(.reverse) .card:not(:last-child){ margin-right: (-1 * $percent * $card-width) }
-  .card-group.overlap-#{$value}.reverse .card:not(:last-child){ margin-left: (-1 * $percent * $card-width) }
+  &.cards--align-center,
+  &.cards--align-center-center{
+    justify-content: center;
+    align-items: center;
+  }
+  &.cards--align-right,
+  &.cards--align-center-right{
+    justify-content: flex-end;
+    align-items: center;
+  }
   
-  .card-group.mode-column.overlap-#{$value}:not(.reverse) .card:not(:last-child){ margin-bottom: (-1 * $percent * $card-height) }
-  .card-group.mode-column.overlap-#{$value}.reverse .card:not(:last-child){ margin-top: (-1 * $percent * $card-height) }
+  &.cards--align-top-left{
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  &.cards--align-top,
+  &.cards--align-top-center{
+    justify-content: center;
+    align-items: flex-start;
+  }
+  &.cards--align-top-right{
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
   
+  &.cards--align-bottom-left{
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+  &.cards--align-bottom,
+  &.cards--align-bottom-center{
+    justify-content: center;
+    align-items: flex-end;
+  }
+  &.cards--align-bottom-right{
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+  
+
+}
+
+.cards--column{
+  
+  flex-direction: column;
+  
+  &.cards--align-left,
+  &.cards--align-center-left{
+    align-items: flex-start;
+    justify-content: center;
+  }
+  
+  &.cards--align-center,
+  &.cards--align-center-center{
+    align-items: center;
+    justify-content: center;
+  }
+  &.cards--align-right,
+  &.cards--align-center-right{
+    align-items: flex-end;
+    justify-content: center;
+  }
+  
+  &.cards--align-top-left{
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  &.cards--align-top,
+  &.cards--align-top-center{
+    align-items: center;
+    justify-content: flex-start;
+  }
+  &.cards--align-top-right{
+    align-items: flex-end;
+    justify-content: flex-start;
+  }
+  
+  &.cards--align-bottom-left{
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+  &.cards--align-bottom,
+  &.cards--align-bottom-center{
+    align-items: center;
+    justify-content: flex-end;
+  }
+  &.cards--align-bottom-right{
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  
+
 }
 
 
 
-/* CARDS ALIGNMENT */
-.card-group.align-center{ justify-content: center }
-.card-group.align-start{ justify-content: flex-start }
-.card-group.align-end{ justify-content: flex-end }
-.card-group.reverse.align-start{ justify-content: flex-end }
-.card-group.reverse.align-end{ justify-content: flex-start }
-
-
-
-/* GROUP RANDOM + REVERSE */
-
-.card-group.mode-random{
+.cards--reverse{
   
-}
+  &:not(.cards--column){
 
+    flex-direction: row-reverse;
 
-@for $nth from 1 through $_MAX_GROUP_COUNT{
-  
-    $rnd: random(40) - 20;
-    $offsetX: random($card-width)*0.1 - ($card-width * 0.1);
-    $offsetY: random($card-height)*0.05 - ($card-height * 0.05);
-    
-    $angle: #{$rnd}deg;
-    
-    .card-group.mode-random .card:nth-child(#{$nth}){
-        transform: rotateZ($angle) translateX($offsetX) translateY($offsetY);
+    &.cards--align-left,
+    &.cards--align-top-left,
+    &.cards--align-center-left,
+    &.cards--align-bottom-left{
+      justify-content: flex-end;
     }
     
+    &.cards--align-right,
+    &.cards--align-top-right,
+    &.cards--align-center-right,
+    &.cards--align-bottom-right{
+      justify-content: flex-start;
+    }
+
+  }
+
+  &.cards--column{
+
+    flex-direction: column-reverse;
+
+    &.cards--align-top,
+    &.cards--align-top-left,
+    &.cards--align-top-center,
+    &.cards--align-top-right{
+      justify-content: flex-end;
+    }
+
+    &.cards--align-bottom,
+    &.cards--align-bottom-left,
+    &.cards--align-bottom-center,
+    &.cards--align-bottom-right{
+      justify-content: flex-start;
+    }
+
+  }
+
+}
+
+
+
+
+.cards--overlap{
+
+  $gutter: 0.95em;
+  
+  //default as .cards-row
+  &:not(.cards--column){
+    .card{ margin-left: -1*$gutter }
+    &:not(.cards--reverse) .card:first-child{ margin-left: 0}
+    &.cards--reverse .card:last-child{ margin-left: 0}
+  }
+  
+  &.cards--column{
+    .card{ margin-top: -1*$gutter }
+    &:not(.cards--reverse) .card:first-child{ margin-top: 0}
+    &.cards--reverse .card:last-child{ margin-top: 0}
+  }
+  
+}
+
+
+
+/* RANDOM ARRANGEMENT */
+
+.cards--random{
+  
+  $len: 3;
+  $r: 15;
+  
+  @for $i from 1 through $len {
+    
+    $rnd: random(2*$r) - $r;
+    $angle: #{$rnd}deg;
+    
+    .card:nth-child(#{$len}n+#{$i}){
+        transform: rotateZ($angle);
+    }
+    
+  }
+
 }
 
 
@@ -106,65 +206,51 @@ $_OVERLAP_VALUES: 0, 25, 50, 75, 90, 95;
 
 /* GROUP HAND */
 
-.card-group.mode-hand {
+.cards--in-hand{
 
-}
-
-@for $n from 1 through $_MAX_GROUP_COUNT {
-  
-  @for $i from 1 through $n {
-    
-      $angle: decimal-round( -20deg + (40deg/$n) * $i );
-      $angle_reversed: decimal-round( -20deg + (40deg/$n) * ($n - $i) );
-      
-      $z: ( ( $i - ($n*0.5) ) * $n ) / 90;
-      $rads: rad($z);
-      $offsetY: decimal-round( -1em * cos($rads), 2);
-      
-      $a: ( ( $i - ($n*0.5deg) ) * $n ) * 0.5;
-      
-      .card-group.mode-hand.count-#{$n} .card{
-        &:nth-child(#{$i}) {
-          transform: rotateZ($angle) translateY($offsetY);
-        }
-      }
-      
-      .card-group.mode-hand.reverse.count-#{$n} .card{
-        &:nth-child(#{$i}) {
-          transform: rotateZ($angle_reversed) translateY($offsetY);
-        }
-      }
-      
+  .card{
+    position: absolute;
+    margin: 0 !important;
   }
-    
-}
-
-
-
-
-@for $n from 1 through $_MAX_GROUP_COUNT {
   
-  @for $i from 1 through $n {
-    
-      $angle: decimal-round( -15deg + (30deg/$n) * $i );
-      $z: ( ( $i - ($n*0.5) ) * $n ) / 90;
-      $rads: rad($z);
-      $offsetY: decimal-round( -15px * cos($z), 2);
+  $_MAX_GROUP_COUNT: 12;
+  
+  @for $n from 1 through $_MAX_GROUP_COUNT {
+
+    @for $i from 1 through $n {
+        
+        $r: 7em;
+        $range: 60deg;
       
-      .card-group.mode-hand.count-#{$n} .card.rotate{
-        &:nth-child(#{$i}) {
-          transform: rotateZ(90 - $angle) translateY($offsetY);
+        $a-offset: -1 * ( 180deg - .5*$range );
+
+        $deg: decimal-round( $range/$n * $i ) - $a-offset;
+        $rads: rad($deg);
+      
+        //circle offset
+        //$cx: 0; $cy: 10em;
+        $cx: 0; $cy: $r;
+
+        $o-x: $cx + decimal-round( $r * sin($rads), 2);
+        $o-y: $cy + decimal-round( $r * cos($rads), 2);
+      
+        
+        $ii: $n - $i;
+        
+        .card:nth-child(#{$ii}):nth-last-child(#{$i}){
+          transform: translateX($o-x) translateY($o-y)  rotateZ(180deg - $deg);
         }
-      }
+            
+        &.--reverse{
+          .card:nth-child(#{$i}):nth-last-child(#{$ii}) {
+            transform: translateX($o-x) translateY($o-y)  rotateZ(180deg - $deg);
+          }
+        }
       
-  }
+    }
     
-}
 
-.card-group.mode-hand .card.selected{
-  transform: translateY(-3em) translateX(-0.1em) rotateZ(-5deg) !important;
-}
-
-.card-group.mode-hand .card.rotate.selected{
-  transform: translateY(-3em) translateX(-0.1em) rotateZ(85deg) !important;
+  }
+  
+  
 }
