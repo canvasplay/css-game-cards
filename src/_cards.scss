@@ -203,53 +203,78 @@
 
 
 
-/* GROUP HAND */
+/**
+ *  CARDS--FAN
+ *  Arrange cards as a fan
+ */
 
-.cards--in-hand{
+//will work only up to $fan-count cards
+//keep iteration limits
+$fan-count: 12;
 
-  .card{
-    position: absolute;
-    margin: 0 !important;
-  }
+//distance between cards
+//negative value cause overlapping
+$fan-gutter: -.25em;
+
+//radius of fan curve
+$fan-radius: 7em;
+
+//angle range of the fan
+$fan-range: 60deg;
+
+
+.cards--fan{
   
-  $_MAX_GROUP_COUNT: 12;
+  //calculate offset angle to place cards standing up
+  $angle-offset: -1 * ( 180deg - .5*$fan-range );  
   
-  @for $n from 1 through $_MAX_GROUP_COUNT {
-
-    @for $i from 1 through $n {
-        
-        $r: 7em;
-        $range: 60deg;
-      
-        $a-offset: -1 * ( 180deg - .5*$range );
-
-        $deg: decimal-round( $range/$n * $i ) - $a-offset;
-        $rads: rad($deg);
-      
-        //circle offset
-        //$cx: 0; $cy: 10em;
-        $cx: 0; $cy: $r;
-
-        $o-x: $cx + decimal-round( $r * sin($rads), 2);
-        $o-y: $cy + decimal-round( $r * cos($rads), 2);
-      
-        
-        $ii: $n - $i;
-        
-        .card:nth-child(#{$ii}):nth-last-child(#{$i}){
-          transform: translateX($o-x) translateY($o-y)  rotateZ(180deg - $deg);
-        }
-            
-        &.--reverse{
-          .card:nth-child(#{$i}):nth-last-child(#{$ii}) {
-            transform: translateX($o-x) translateY($o-y)  rotateZ(180deg - $deg);
-          }
-        }
-      
-    }
+  //calculate position offset to keep cards aligned
+  //we are ignoring x offset for the sake
+  $cx: 0; $cy: $fan-radius;
     
+  //apply gutter separator
+  //also reset gutter for first card
+  //or last card if reversed
+  .card{ margin-left: $fan-gutter }
+  &:not(.cards--reverse) .card:first-child{ margin-left: 0}
+  &.cards--reverse .card:last-child{ margin-left: 0}
+ 
+  //iterate up to $fan-count times
+  //from $i to $n
+  @for $n from 1 through $fan-count {
+  @for $i from 1 through $n {
+        
+    //resolve angle for given index $i
+    $angle-in-degs: decimal-round( $fan-range/$n * $i ) - $angle-offset;
 
+    //convert to radians for math operations
+    $angle-in-rads: rad($angle-in-degs);
+
+    //resolve card offset based on calculated angle
+    $o-x: $cx + decimal-round( $fan-radius * sin($angle-in-rads), 2);
+    $o-y: $cy + decimal-round( $fan-radius * cos($angle-in-rads), 2);
+
+    //$i  --> index from the start
+    //$ii --> index from the end
+    //using nth-child($i) + nth-last-child($ii) combination
+    //we can target $i (index) card based on $n siblings quantity     
+    $ii: $n - $i;
+
+    //apply transform for $i/$ii indexes
+    .card:nth-child(#{$ii}):nth-last-child(#{$i}){
+      //transform: translateX($o-x) translateY($o-y)  rotateZ(180deg - $angle-in-degs);
+      transform: translateY($o-y) rotateZ(180deg - $angle-in-degs);
+    }
+
+    //invert indexes to support reverse order
+    &.cards--reverse{
+      .card:nth-child(#{$i}):nth-last-child(#{$ii}) {
+        //transform: translateX($o-x) translateY($o-y)  rotateZ(180deg - $angle-in-degs);
+        transform: translateY($o-y)  rotateZ(180deg - $angle-in-degs);
+      }
+    }
+      
   }
-  
+  }
   
 }
