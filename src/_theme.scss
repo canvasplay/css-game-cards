@@ -2,10 +2,12 @@
 
 .card{
   
+  $border-radius: $card-width * .125;
+  
   .face,
   .back{
   	box-shadow: 0 0.1em 0.7em rgba(0,0,0,0.3);
-  	border-radius: 0.25em;
+  	border-radius: $border-radius;
   	background: #FFF;
   	line-height: $card-height;
   	
@@ -22,12 +24,11 @@
       content: '';
       display: block;
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       border: 0.15em solid #00DDFF;
-      border-radius: 0.2em;
-      width: 4em;
-      height: 6em;
+      border-radius: $border-radius;
+      width: $card-width;
+      height: $card-height;
     }
     
   }

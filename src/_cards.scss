@@ -214,7 +214,7 @@ $fan-count: 12;
 
 //distance between cards
 //negative value cause overlapping
-$fan-gutter: -.25em;
+$fan-gutter: $card-width * -.25;
 
 //radius of fan curve
 $fan-radius: 7em;
@@ -226,11 +226,11 @@ $fan-range: 60deg;
 .cards--fan{
   
   //calculate offset angle to place cards standing up
-  $angle-offset: -1 * ( 180deg - .5*$fan-range );  
+  $angle-offset: -1 * ( 180deg - .5*$fan-range );
   
   //calculate position offset to keep cards aligned
   //we are ignoring x offset for the sake
-  $cx: 0; $cy: $fan-radius;
+  $cx: 0em; $cy: $fan-radius;
     
   //apply gutter separator
   //also reset gutter for first card
@@ -251,13 +251,15 @@ $fan-range: 60deg;
     $angle-in-rads: rad($angle-in-degs);
 
     //resolve card offset based on calculated angle
+    //$o-x: $cx + decimal-round( $fan-radius * ( $card-width * .5 / 1em ) * sin($angle-in-rads), 2);
+    //$o-y: $cy + decimal-round( $fan-radius * ( $card-width * .5 / 1em ) * cos($angle-in-rads), 2);
     $o-x: $cx + decimal-round( $fan-radius * sin($angle-in-rads), 2);
     $o-y: $cy + decimal-round( $fan-radius * cos($angle-in-rads), 2);
 
     //$i  --> index from the start
     //$ii --> index from the end
     //using nth-child($i) + nth-last-child($ii) combination
-    //we can target $i (index) card based on $n siblings quantity     
+    //we can target card indexes based on siblings quantity
     $ii: $n - $i;
 
     //apply transform for $i/$ii indexes
