@@ -50,7 +50,7 @@
 
   <div class="container">
     
-    <div class="cards cards--debug">
+    <div id="SingleCardTest" class="cards cards--debug">
       
       <div class="card" data-name="card">
       <div class="turner" data-name="turner">
@@ -62,7 +62,14 @@
       </div>
       
     </div>
-
+      
+      <button onclick="$('#SingleCardTest').toggleClass('cards--debug')">3d</button>
+      <button onclick="$('#SingleCardTest .card').toggleClass('flip')">FLIP</button>
+      <button onclick="$('#SingleCardTest .card').toggleClass('spin')">SPIN</button>
+      <button onclick="$('#SingleCardTest .card').toggleClass('turn-90')">90</button>
+      <button onclick="$('#SingleCardTest .card').toggleClass('turn-180')">180</button>
+      <button onclick="$('#SingleCardTest .card').toggleClass('turn-270')">270</button>
+      <button onclick="$('#SingleCardTest .card').toggleClass('twist')">TWIST</button>
 
     <div class="cards cards--fan">
       

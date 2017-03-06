@@ -145,14 +145,45 @@ $debug-gutter: 1em;
 }
 
 
-.cards--debug .card.rotate .turner{
-   transform: translateZ($debug-gutter) rotateZ(90deg);
-}
 
-.cards--debug .card.twist .turner{
-   transform: translateZ($debug-gutter) rotateZ(360deg);
-}
+/**
+ *  TURN TRANSFORMS
+ *  applicable to .turner layer
+ *
+ */
 
-.cards--debug .card.rotate.twist .turner{
-   transform: translateZ($debug-gutter) rotateZ(450deg);
+.cards--debug{
+
+  .card .turner{
+     transform: translateZ($debug-gutter) rotateZ(0deg);
+  }
+  
+  .card.turn-90 .turner{
+     transform: translateZ($debug-gutter) rotateZ(90deg);
+  }
+  
+  .card.turn-180 .turner{
+     transform: translateZ($debug-gutter) rotateZ(180deg);
+  }
+  
+  .card.turn-270 .turner{
+     transform: translateZ($debug-gutter) rotateZ(270deg);
+  }
+  
+  .card.twist .turner{
+     transform: translateZ($debug-gutter) rotateZ(360deg);
+  }
+  
+  .card.turn-90.twist .turner{
+     transform: translateZ($debug-gutter) rotateZ(450deg);
+  }
+  
+  .card.turn-180.twist .turner{
+     transform: translateZ($debug-gutter) rotateZ(540deg);
+  }
+  
+  .card.turn-270.twist .turner{
+     transform: translateZ($debug-gutter) rotateZ(630deg);
+  }
+ 
 }

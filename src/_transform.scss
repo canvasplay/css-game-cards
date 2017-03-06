@@ -12,7 +12,7 @@
 
 
 /**
- *  TURNER TRANSFORMS
+ *  TURN TRANSFORMS
  *  applicable to .turner layer
  *
  */
@@ -21,22 +21,39 @@
    transform: rotateZ(0deg);
 }
 
-.card.rotate .turner{
+.card.turn-90 .turner{
    transform: rotateZ(90deg);
+}
+
+.card.turn-180 .turner{
+   transform: rotateZ(180deg);
+}
+
+.card.turn-270 .turner{
+   transform: rotateZ(270deg);
 }
 
 .card.twist .turner{
    transform: rotateZ(360deg);
 }
 
-.card.twist.rotate .turner{
+.card.turn-90.twist .turner{
    transform: rotateZ(450deg);
 }
+
+.card.turn-180.twist .turner{
+   transform: rotateZ(540deg);
+}
+
+.card.turn-270.twist .turner{
+   transform: rotateZ(630deg);
+}
+
 
  
  
 /**
- *  FLIPPER TRANSFORMS
+ *  FLIP TRANSFORMS
  *  applicable to .flipper layer
  *
  */
