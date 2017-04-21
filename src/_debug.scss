@@ -130,18 +130,18 @@ $debug-gutter: 1em;
 
 /* FLIP */
 .cards--debug .card.flip .flipper{
-	transform: translateZ(2*$debug-gutter) rotateY(180deg) ;
+	transform: translateZ(2*$debug-gutter) rotateY(180deg);
 }
 
 
 /* SPIN */
 .cards--debug .card.spin .flipper{
-	transform: translateZ(2*$debug-gutter) rotateY(360deg) ;
+	transform: translateZ(2*$debug-gutter) rotateY(360deg);
 }
 
 /* SPIN + FLIP */
 .cards--debug .card.spin.flip .flipper{
-	transform: translateZ(2*$debug-gutter) rotateY(540deg) ;
+	transform: translateZ(2*$debug-gutter) rotateY(540deg);
 }
 
 

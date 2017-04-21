@@ -7,6 +7,21 @@
   transition: $fn $easing $duration;
 }
 
+@mixin transform($tx, $ty, $tz, $rx, $ry, $rz){
+  transform:
+  	translateX(tx) translateY(ty) translateZ(tz)
+	rotateX(rx) rotateY(ry) rotateZ(rz);
+}
+
+@function applyTransform($t, $tx, $ty, $tz, $rx, $ry, $rz){
+  
+  @return (
+  	nth($t, 1) + $tx, nth($t, 2) + $ty, nth($t, 3) + $tz,
+  	nth($t, 4) + $rx, nth($t, 5) + $ry, nth($t, 6) + $rz,
+  )
+
+}
+
 $card-width: 1em;
 $card-height: 1.5em;
 

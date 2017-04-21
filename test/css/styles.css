@@ -1,0 +1,118 @@
+body{
+  background: #282940;
+  color: #00BCD4;
+  padding: 3em;
+}
+.background{
+  display: block;
+  position: fixed;
+  top: 0; left:0; right: 0; bottom: 0;
+  background: url(https://www.toptal.com/designers/subtlepatterns/patterns/squared_metal.png) 0 0 repeat transparent;
+  opacity:0.5;
+  filter: invert(1);
+  z-index: 0;
+}
+.card{
+  cursor: pointer; 
+}
+
+.cards{
+  padding: 6em 0;
+}
+
+.cards .card{
+  font-size: 4em;
+}
+
+.cards .card .face strong,
+.cards .card .back strong{
+  font-size: 1em;
+  color: #333333;
+}
+.cards .card .face strong:before,
+.cards .card .face strong:after,
+.cards .card .back strong:before,
+.cards .card .back strong:after{
+  content: attr(data-value);
+  position: absolute;
+  font-size: 0.3em;
+  display: block;
+  line-height: 1;
+  padding: .25em;
+}
+
+.cards .card .face strong:before,
+.cards .card .back strong:before{
+  top: 0; left:0;
+}
+.cards .card .face strong:after,
+.cards .card .back strong:after{
+  bottom: 0; right:0;
+}
+
+
+
+form{
+  text-align: center;
+}
+  
+.form-group {
+    position: relative;
+    margin-bottom: 4px;
+    display: inline-block;
+    text-align: left;
+    border: 1px solid rgba(0,188,212,0.2);
+    padding: .5em 1em;
+    border-radius: 0.25em;
+}
+
+.form-group > label{
+  display:block;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+
+
+input:focus,
+label:focus,
+label.active.focus,
+label:active:focus,
+textarea:focus,
+button:focus, .btn:focus,
+button.active:focus, .btn.active:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+label{
+  display: block;
+  padding: 0.8em;
+  cursor: pointer;
+}
+
+.btn-group label{
+  margin: 0;
+  padding: 0.4em;
+}
+
+label > input,
+label > i,
+label > span{
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* hide native input elements */ 
+label > input[type="checkbox"],
+label > input[type="radio"]{
+  width:0;
+  visibility: hidden;
+}
+
+input[type="checkbox"] + i.material-icons:before{ content: '\E835' }
+input[type="checkbox"]:checked + i.material-icons:before{ content: '\E834' }
+input[type="radio"] + i.material-icons:before{ content: '\E836' }
+input[type="radio"]:checked + i.material-icons:before{ content: '\E837' }
