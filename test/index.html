@@ -24,20 +24,20 @@
     var classes = [];
     
     var mode = _.find(arguments,function(i){ return i.name=="mode" });
-    if(mode && mode.value) classes.push('cards--'+mode.value);   
+    if(mode && mode.value) classes.push('cards--'+mode.value);
     
     var reverse = _.find(arguments,function(i){ return i.name=="reverse" });
     if(reverse && reverse.value=='on') classes.push('cards--reverse');
     
     var overlap = _.find(arguments,function(i){ return i.name=="overlap" });
-    if(overlap && overlap.value=='on') classes.push('cards--overlap'); 
+    if(overlap && overlap.value=='on') classes.push('cards--overlap');
     
     var align = _.find(arguments,function(i){ return i.name=="align" });
-    if(align && align.value) classes.push('cards--align-'+align.value); 
+    if(align && align.value) classes.push('cards--align-'+align.value);
     
   %>
   
-  <div class="cards <%= classes.join(' ') %> cards--deck">
+  <div class="cards <%= classes.join(' ') %>">
   <% for(var i=0; i<count; i++){ %>
   
       <div class="card">
@@ -45,7 +45,7 @@
           <div class="flipper">
             <div class="back">
               <strong>B</strong>
-            </div>          
+            </div>
             <div class="face">
               <strong data-value="<%= i+1 %>"><%= i+1 %></strong>
             </div>
@@ -59,12 +59,23 @@
 </script>
 
 
-<div class="background"></div>
-
+<section class="hero">
+  
+  <div class="container">
+  <div class="wrapper">
+    <h1>CSS Game Cards is micro-framework for displaying interactive animated game cards.</h1>
+    <h2>This document describes how it works.</h2>
+    <p class="metadata">
+      Version 1.4.2 - MIT license
+    </p>
+  </div>
+  </div>
+  
+</section>
 
 <div class="card-view cards cards--debug">
 
-  <div class="card" data-name="card" onclick="toggleCardClass(this,'debug3D')">
+  <div class="card" data-name="card">
     <div class="turner" data-name="turner">
     <div class="flipper" data-name="flipper">
       <div class="back" data-name="back">
@@ -82,7 +93,7 @@
 <form class="card-form">
 
   <div class="form-group">
-  <label>debug</label> 
+  <label>debug</label>
   <div class="btn-group">
     <label>
       <input type="checkbox" name="3d" checked>
@@ -93,7 +104,7 @@
   </div>
 
   <div class="form-group">
-  <label>flipper</label> 
+  <label>flipper</label>
   <div class="btn-group">
     <label>
       <input type="checkbox" name="flip">
@@ -106,11 +117,11 @@
       <span>spin</span>
     </label>
   </div>
-  </div>  
+  </div>
 
   <div class="form-group">
 
-  <label>turner</label> 
+  <label>turner</label>
 
 
   <div class="btn-group">
@@ -118,25 +129,25 @@
     <label>
       <input type="radio" name="turn" value="default" checked>
       <i class="material-icons"></i>
-      <span>0</span>
+      <span>default</span>
     </label>
 
     <label>
-      <input type="radio" name="turn" value="90">
+      <input type="radio" name="turn" value="left">
+      <i class="material-icons"></i>
+      <span>left</span>
+    </label>
+
+    <label>
+      <input type="radio" name="turn" value="right">
       <i class="material-icons"></i>
       <span>right</span>
     </label>
 
     <label>
-      <input type="radio" name="turn" value="180">
+      <input type="radio" name="turn" value="down">
       <i class="material-icons"></i>
-      <span>180</span>
-    </label>
-
-    <label>
-      <input type="radio" name="turn" value="270">
-      <i class="material-icons"></i>
-      <span>left</span>
+      <span>down</span>
     </label>
 
   </div>
@@ -181,7 +192,7 @@
   
       <div class="form-group">
 
-        <label>mode</label> 
+        <label>mode</label>
         
         <div class="btn-group">
           
@@ -208,7 +219,7 @@
       </div>
     
       <div class="form-group">
-        <label>reverse</label> 
+        <label>reverse</label>
         <div class="btn-group">
           <label>
             <input type="checkbox" name="reverse">
@@ -219,7 +230,7 @@
       </div>
     
       <div class="form-group">
-        <label>overlap</label> 
+        <label>overlap</label>
         <div class="btn-group">
           <label>
             <input type="checkbox" name="overlap">
@@ -231,7 +242,7 @@
     
       <div class="form-group">
 
-        <label>alignment</label> 
+        <label>alignment</label>
         
         <div class="align-group">
           
@@ -267,7 +278,7 @@
             <i class="material-icons"></i>
           </label>
           
-          <br> 
+          <br>
           
           <label>
             <input type="radio" name="align" value="bottom-left">
@@ -282,11 +293,11 @@
           <label>
             <input type="radio" name="align" value="bottom-right">
             <i class="material-icons"></i>
-          </label>      
+          </label>
           
         </div>
         
-      </div>    
+      </div>
     
     
   </div>
@@ -308,7 +319,7 @@
 
 <script src="js/CardsModel.js"></script>
 <script src="js/CardsView.js"></script>
-<script src="js/CardsFormView.js"></script>  
+<script src="js/CardsFormView.js"></script>
 
 <script src="js/app.js"></script>
 

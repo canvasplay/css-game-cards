@@ -12,47 +12,6 @@
 
 
 /**
- *  TURN TRANSFORMS
- *  applicable to .turner layer
- *
- */
- 
-.card .turner{
-   transform: rotateZ(0deg);
-}
-
-.card.turn-90 .turner{
-   transform: rotateZ(90deg);
-}
-
-.card.turn-180 .turner{
-   transform: rotateZ(180deg);
-}
-
-.card.turn-270 .turner{
-   transform: rotateZ(270deg);
-}
-
-.card.twist .turner{
-   transform: rotateZ(360deg);
-}
-
-.card.turn-90.twist .turner{
-   transform: rotateZ(450deg);
-}
-
-.card.turn-180.twist .turner{
-   transform: rotateZ(540deg);
-}
-
-.card.turn-270.twist .turner{
-   transform: rotateZ(630deg);
-}
-
-
- 
- 
-/**
  *  FLIP TRANSFORMS
  *  applicable to .flipper layer
  *
@@ -73,3 +32,46 @@
 .card.spin.flip .flipper{
 	transform: rotateY(540deg);
 }
+
+
+/**
+ *  TURN TRANSFORMS
+ *  applicable to .turner layer
+ *
+ */
+ 
+.card .turner{
+   transform: rotateZ(0deg);
+}
+
+.card.turn-right .turner{
+   transform: rotateZ(90deg);
+}
+
+.card.turn-down .turner{
+   transform: rotateZ(180deg);
+}
+
+.card.turn-left .turner{
+   transform: rotateZ(-90deg);
+}
+
+.card.twist .turner{
+   transform: rotateZ(360deg);
+}
+
+.card.turn-right.twist .turner{
+   transform: rotateZ(450deg);
+}
+
+.card.turn-down.twist .turner{
+   transform: rotateZ(540deg);
+}
+
+.card.turn-left.twist .turner{
+   transform: rotateZ(270deg);
+}
+
+
+ 
+ 

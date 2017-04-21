@@ -1,23 +1,20 @@
 body{
   background: #282940;
+  background: url(../img/pattern.png) 0 0 repeat #282940;
   color: #00BCD4;
   padding: 3em;
 }
-.background{
-  display: block;
-  position: fixed;
-  top: 0; left:0; right: 0; bottom: 0;
-  background: url(https://www.toptal.com/designers/subtlepatterns/patterns/squared_metal.png) 0 0 repeat transparent;
-  opacity:0.5;
-  filter: invert(1);
-  z-index: 0;
-}
-.card{
-  cursor: pointer; 
+
+.card-view.cards,
+.cards-view > .cards {
+    min-height: 26em;
+    border: 1px dashed rgba(0,188,212,0.2);
+    border-radius: .5em;
+    margin: 1em 0;
 }
 
-.cards{
-  padding: 6em 0;
+.card{
+  cursor: pointer;
 }
 
 .cards .card{
@@ -53,6 +50,8 @@ body{
 
 
 form{
+  user-select: none;
+  touch-action: none;
   text-align: center;
 }
   
@@ -87,8 +86,6 @@ button.active:focus, .btn.active:focus {
 }
 
 label{
-  display: block;
-  padding: 0.8em;
   cursor: pointer;
 }
 
@@ -105,7 +102,7 @@ label > span{
   line-height: 1;
 }
 
-/* hide native input elements */ 
+/* hide native input elements */
 label > input[type="checkbox"],
 label > input[type="radio"]{
   width:0;

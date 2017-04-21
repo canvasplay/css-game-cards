@@ -25,7 +25,7 @@ var CardsFormView = Backbone.View.extend({
 	},
   
   onCountChange: function(e){
-    var min = 1, max = 50;
+    var min = 1, max = 9;
     var value = parseInt($(e.currentTarget).attr('data-value')) || 0;
     var input = this.$el.find('input[name="count"]');
     var currentValue = parseInt($(input).attr('value')) || 0;
