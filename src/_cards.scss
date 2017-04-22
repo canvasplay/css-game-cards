@@ -159,25 +159,6 @@
 
 
 
-.cards--overlap{
-
-  $gutter: 0.95em;
-  
-  //default as .cards-row
-  &:not(.cards--column){
-    .card{ margin-left: -1*$gutter }
-    &:not(.cards--reverse) .card:first-child{ margin-left: 0}
-    &.cards--reverse .card:last-child{ margin-left: 0}
-  }
-  
-  &.cards--column{
-    .card{ margin-top: -1*$gutter }
-    &:not(.cards--reverse) .card:first-child{ margin-top: 0}
-    &.cards--reverse .card:last-child{ margin-top: 0}
-  }
-  
-}
-
 
 
 /* RANDOM ARRANGEMENT */
@@ -232,13 +213,15 @@ $fan-range: 60deg;
   //we are ignoring x offset for the sake
   $cx: 0em; $cy: $fan-radius;
     
+  /*
   //apply gutter separator
   //also reset gutter for first card
   //or last card if reversed
   .card{ margin-left: $fan-gutter }
   &:not(.cards--reverse) .card:first-child{ margin-left: 0}
   &.cards--reverse .card:last-child{ margin-left: 0}
- 
+  */
+  
   //iterate up to $fan-count times
   //from $i to $n
   @for $n from 1 through $fan-count {
@@ -277,6 +260,32 @@ $fan-range: 60deg;
     }
       
   }
+  }
+  
+}
+
+
+.cards--overlap{
+
+  $gutter: .5em;
+  
+  //default as .cards-row
+  &:not(.cards--column):not(.cards--fan){
+    .card{ margin-left: -1*$gutter }
+    &:not(.cards--reverse) .card:first-child{ margin-left: 0}
+    &.cards--reverse .card:last-child{ margin-left: 0}
+  }
+  
+  &.cards--column{
+    .card{ margin-top: -1.5*$gutter }
+    &:not(.cards--reverse) .card:first-child{ margin-top: 0}
+    &.cards--reverse .card:last-child{ margin-top: 0}
+  }
+  
+  &.cards--fan{
+    .card{ margin-left: -.5*$gutter }
+    &:not(.cards--reverse) .card:first-child{ margin-left: 0}
+    &.cards--reverse .card:last-child{ margin-left: 0}
   }
   
 }
