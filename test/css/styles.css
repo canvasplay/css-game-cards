@@ -19,6 +19,7 @@ body{
   position: absolute;
   top: 0; left: 0;
   padding: 1em;
+  font-weight: normal;
 }
 
 .card{
@@ -55,6 +56,19 @@ body{
   bottom: 0; right:0;
 }
 
+
+.cards-view .cards:before{
+  content: attr(class);
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1em 1.4em;
+  color: #eee780;
+  font-family: Consolas, monaco, monospace;
+  width: 18em;
+  word-spacing: 100em;
+  /* color: #E91E63; */
+}
 
 
 form{
@@ -106,6 +120,7 @@ label{
 .btn-group label{
   margin: 0;
   padding: 0.4em;
+  font-weight: normal;
 }
 
 label > input,
