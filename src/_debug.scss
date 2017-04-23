@@ -50,8 +50,7 @@ $debug-gutter: 1em;
     .flipper:before,
     .back:before,
     .face:before{
-      //content: "." attr(class);
-      content: "." attr(data-name);
+      content: "." attr(class);
       font-family: Consolas, monaco, monospace;
       display: inline-block;
       line-height: 1;
@@ -61,6 +60,10 @@ $debug-gutter: 1em;
       font-size: 0.25em;
       left: 0;
       top: -1.5em;
+    }
+
+    &:before{
+      content: '.card';
     }
     
   }

@@ -75,13 +75,19 @@
 
 <div class="card-view cards cards--debug">
 
-  <div class="card" data-name="card">
-    <div class="turner" data-name="turner">
-    <div class="flipper" data-name="flipper">
-      <div class="back" data-name="back">
+  <label class="input-debug">
+    <input type="checkbox" value="true" name="3d" checked>
+    <i class="material-icons"></i>
+    <span>debug3D</span>
+  </label>
+
+  <div class="card">
+    <div class="turner">
+    <div class="flipper">
+      <div class="back">
         <strong data-value="B">B</strong>
       </div>
-      <div class="face" data-name="face">
+      <div class="face">
         <strong data-value="A">A</strong>
       </div>
     </div>
@@ -92,27 +98,29 @@
     
 <form class="card-form">
 
+  <!--
   <div class="form-group">
   <label>debug</label>
   <div class="btn-group">
     <label>
-      <input type="checkbox" name="3d" checked>
+      <input type="checkbox" name="3d" value="true" checked>
       <i class="material-icons"></i>
       <span>3D view</span>
     </label>
   </div>
   </div>
+  -->
 
   <div class="form-group">
   <label>flipper</label>
   <div class="btn-group">
     <label>
-      <input type="checkbox" name="flip">
+      <input type="checkbox" value="true" name="flip">
       <i class="material-icons"></i>
       <span>flip</span>
     </label>
     <label>
-      <input type="checkbox" name="spin">
+      <input type="checkbox" value="true" name="spin">
       <i class="material-icons"></i>
       <span>spin</span>
     </label>
@@ -154,7 +162,7 @@
 
   <div class="btn-group">
     <label>
-      <input type="checkbox" name="twist">
+      <input type="checkbox" value="true" name="twist">
       <i class="material-icons"></i>
       <span>twist</span>
     </label>

@@ -2,8 +2,13 @@ var CardView = Backbone.View.extend({
   
   model : CardModel,
 
+  events: {
+    'change input': 'toggleDebug'
+  },
+
   initialize: function(){
      this.listenTo(this.model, 'change', this.update);
+     this.debug = true;
   },
   
   update: function(){
@@ -27,12 +32,19 @@ var CardView = Backbone.View.extend({
     if(twist) classes.push('twist');
     
     $card[0].className = classes.join(' ');
-    
-    var _3d = _.find(data,function(i){ return i.name=="3d" });
-    if(_3d) this.$el.addClass('cards--debug');
-    else this.$el.removeClass('cards--debug');
+
     
     return;
+  },
+
+  toggleDebug: function(){
+
+    this.debug = !this.debug;
+    
+    if(this.debug) this.$el.addClass('cards--debug');
+    else this.$el.removeClass('cards--debug');
+
   }
+
                                      
 });
