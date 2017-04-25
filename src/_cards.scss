@@ -166,19 +166,10 @@
 
 .cards--random{
   
-  $len: 3;
   $r: 25;
-  
-  @for $i from 1 through $len {
-    
-    $rnd: random(2*$r) - $r;
-    $angle: #{$rnd}deg;
-    
-    .card:nth-child(#{$len}n+#{$i}){
-        transform: rotateZ($angle);
-    }
-    
-  }
+
+
+
 
 }
 
