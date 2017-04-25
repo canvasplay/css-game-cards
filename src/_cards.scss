@@ -267,21 +267,39 @@ $fan-range: 60deg;
   
   //default as .cards-row
   &:not(.cards--column):not(.cards--fan){
+    /*
     .card{ margin-left: -1*$gutter }
     &:not(.cards--reverse) .card:first-child{ margin-left: 0}
     &.cards--reverse .card:last-child{ margin-left: 0}
+    */
+    .card{
+      margin-left: -.5*$gutter;
+      margin-right: -.5*$gutter;
+    }    
   }
   
   &.cards--column{
+    /*
     .card{ margin-top: -1.5*$gutter }
     &:not(.cards--reverse) .card:first-child{ margin-top: 0}
     &.cards--reverse .card:last-child{ margin-top: 0}
+    */
+    .card{
+      margin-top: -.75*$gutter;
+      margin-bottom: -.75*$gutter;
+    }    
   }
   
   &.cards--fan{
+    /*
     .card{ margin-left: -.5*$gutter }
     &:not(.cards--reverse) .card:first-child{ margin-left: 0}
     &.cards--reverse .card:last-child{ margin-left: 0}
+    */
+    .card{
+      margin-left: -.3*$gutter;
+      margin-right: -.3*$gutter;
+    }    
   }
   
 }
