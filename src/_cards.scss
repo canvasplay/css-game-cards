@@ -169,6 +169,10 @@
   $r: 25;
 
 
+  .card {               transform: rotateZ(-20deg); }
+  .card:nth-child(2n) { transform: rotateZ(-10deg); }
+  .card:nth-child(3n) { transform: rotateZ(12deg); }
+  .card:nth-child(5n) { transform: rotateZ(3deg); }
 
 
 }
