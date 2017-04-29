@@ -242,14 +242,14 @@ $fan-range: 60deg;
     $ii: $n - $i;
 
     //apply transform for $i/$ii indexes
-    .card:nth-child(#{$ii}):nth-last-child(#{$i}){
+    .card:nth-of-type(#{$ii}):nth-last-of-type(#{$i}){
       //transform: translateX($o-x) translateY($o-y)  rotateZ(180deg - $angle-in-degs);
       transform: translateY($o-y) rotateZ(180deg - $angle-in-degs);
     }
 
     //invert indexes to support reverse order
     &.cards--reverse{
-      .card:nth-child(#{$i}):nth-last-child(#{$ii}) {
+      .card:nth-of-type(#{$i}):nth-last-of-type(#{$ii}) {
         //transform: translateX($o-x) translateY($o-y)  rotateZ(180deg - $angle-in-degs);
         transform: translateY($o-y)  rotateZ(180deg - $angle-in-degs);
       }
