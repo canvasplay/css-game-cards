@@ -9,8 +9,12 @@
 
 @mixin transform($tx, $ty, $tz, $rx, $ry, $rz){
   transform:
-  	translateX(tx) translateY(ty) translateZ(tz)
-	rotateX(rx) rotateY(ry) rotateZ(rz);
+  	translateX($tx) translateY($ty) translateZ($tz)
+    rotateX($rx) rotateY($ry) rotateZ($rz);
+}
+
+@mixin rotate3D($rx, $ry, $rz){
+  transform: rotateX($rx * 1deg) rotateY($ry * 1deg) rotateZ($rz * 1deg);
 }
 
 @function applyTransform($t, $tx, $ty, $tz, $rx, $ry, $rz){

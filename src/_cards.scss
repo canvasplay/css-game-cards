@@ -166,19 +166,14 @@
 
 .cards--random{
   
-  $len: 3;
   $r: 25;
-  
-  @for $i from 1 through $len {
-    
-    $rnd: random(2*$r) - $r;
-    $angle: #{$rnd}deg;
-    
-    .card:nth-child(#{$len}n+#{$i}){
-        transform: rotateZ($angle);
-    }
-    
-  }
+
+
+  .card {               transform: rotateZ(-20deg); }
+  .card:nth-child(2n) { transform: rotateZ(-10deg); }
+  .card:nth-child(3n) { transform: rotateZ(12deg); }
+  .card:nth-child(5n) { transform: rotateZ(3deg); }
+
 
 }
 
@@ -247,14 +242,14 @@ $fan-range: 60deg;
     $ii: $n - $i;
 
     //apply transform for $i/$ii indexes
-    .card:nth-child(#{$ii}):nth-last-child(#{$i}){
+    .card:nth-of-type(#{$ii}):nth-last-of-type(#{$i}){
       //transform: translateX($o-x) translateY($o-y)  rotateZ(180deg - $angle-in-degs);
       transform: translateY($o-y) rotateZ(180deg - $angle-in-degs);
     }
 
     //invert indexes to support reverse order
     &.cards--reverse{
-      .card:nth-child(#{$i}):nth-last-child(#{$ii}) {
+      .card:nth-of-type(#{$i}):nth-last-of-type(#{$ii}) {
         //transform: translateX($o-x) translateY($o-y)  rotateZ(180deg - $angle-in-degs);
         transform: translateY($o-y)  rotateZ(180deg - $angle-in-degs);
       }
@@ -272,21 +267,39 @@ $fan-range: 60deg;
   
   //default as .cards-row
   &:not(.cards--column):not(.cards--fan){
+    /*
     .card{ margin-left: -1*$gutter }
     &:not(.cards--reverse) .card:first-child{ margin-left: 0}
     &.cards--reverse .card:last-child{ margin-left: 0}
+    */
+    .card{
+      margin-left: -.5*$gutter;
+      margin-right: -.5*$gutter;
+    }    
   }
   
   &.cards--column{
+    /*
     .card{ margin-top: -1.5*$gutter }
     &:not(.cards--reverse) .card:first-child{ margin-top: 0}
     &.cards--reverse .card:last-child{ margin-top: 0}
+    */
+    .card{
+      margin-top: -.75*$gutter;
+      margin-bottom: -.75*$gutter;
+    }    
   }
   
   &.cards--fan{
+    /*
     .card{ margin-left: -.5*$gutter }
     &:not(.cards--reverse) .card:first-child{ margin-left: 0}
     &.cards--reverse .card:last-child{ margin-left: 0}
+    */
+    .card{
+      margin-left: -.3*$gutter;
+      margin-right: -.3*$gutter;
+    }    
   }
   
 }
