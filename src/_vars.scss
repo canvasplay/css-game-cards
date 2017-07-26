@@ -24,6 +24,8 @@
 
 $card-width: 1em;
 $card-height: 1.5em;
+$card-radius: $card-width * .1;
+  
 
 $transition-duration: 0.5s;
 $transition-fn: cubic-bezier(0.175, 0.825, 0.3, 1.15);

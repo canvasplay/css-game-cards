@@ -34,12 +34,12 @@
 	backface-visibility: hidden;
 }
 
-.card .flipper .back {
-  transform: rotateY(180deg);
-  z-index: 2;
-}
-
 .card .flipper .face {
   transform: rotateY(0deg);
   z-index: 1;
+}
+
+.card .flipper .back {
+  transform: rotateY(180deg);
+  z-index: 2;
 }

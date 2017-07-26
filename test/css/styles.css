@@ -24,6 +24,11 @@ body{
 
 .card{
   cursor: pointer;
+  /* clear bootsrtap conflicts... */
+  box-shadow: none;
+  border-radius: 0;
+  background: none;
+  border: none;
 }
 
 .cards .card{

@@ -1,15 +1,13 @@
 
-$color-debug: #00BCD4;
-
+//debug variables
+$debug-color: #00BCD4;
 $debug-gutter: 1em;
 
+
 .cards--debug{
-    
   perspective-origin: center center;
   perspective: 40em;
-
 }
-
 
 .cards--debug .card{
   perspective: initial;
@@ -19,62 +17,47 @@ $debug-gutter: 1em;
 .cards--debug .card,
 .cards--debug .card .turner,
 .cards--debug .card .flipper{
-  color: $color-debug;
+  color: $debug-color;
 }
 
 .cards--debug .card .back,
 .cards--debug .card .face{
-  
-  line-height: $card-height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 800;
   
-  //make both card sides' backface visible
+  //make both card sides' backfaces visible
   backface-visibility: visible;
-  
 }
 
 
 
 
-/**
- *  LAYER NAME LABELS
- *
- */
+//LABELING LAYERS
 
-.cards--debug{
-
-  .card{
-    
-    &:before,
-    .turner:before,
-    .flipper:before,
-    .back:before,
-    .face:before{
-      content: "." attr(class);
-      font-family: Consolas, monaco, monospace;
-      display: inline-block;
-      line-height: 1;
-      font-weight: normal;
-      color: $color-debug;
-      position: absolute;
-      font-size: 0.25em;
-      left: 0;
-      top: -1.5em;
-    }
-
-    &:before{
-      content: '.card';
-    }
-    
+.cards--debug .card{
+  &:before,
+  .turner:before,
+  .flipper:before,
+  .back:before,
+  .face:before{
+    content: "." attr(class);
+    font-family: Consolas, monaco, monospace;
+    display: inline-block;
+    line-height: 1;
+    font-weight: normal;
+    color: $debug-color;
+    position: absolute;
+    font-size: 0.25em;
+    left: 0;
+    top: -1.5em;
   }
+  &:before{ content: '.card' }
 }
 
 
-
-/**
- *  OUTLINES
- *
- */
+//OUTLINE LAYERS
 
 .cards--debug .card:after,
 .cards--debug .card .turner:after,
@@ -83,60 +66,51 @@ $debug-gutter: 1em;
   display: block;
   position: absolute;
   top: 0; left: 0;
-  border: 0.03em solid $color-debug;
-  border-radius: .125em;
+  border: 0.03em solid $debug-color;
+  border-radius: $card-radius;
 	width: $card-width;
 	height: $card-height;
-	color: $color-debug;
+	color: $debug-color;
 }
-
 
 .cards--debug .card .turner:after,
 .cards--debug .card .flipper:after{
   border-style: dashed;
-}
-
-.cards--debug .card .turner:after,
-.cards--debug .card .flipper:after{
   background: rgba(0,221,255,0.25);
 }
 
 
+// 3D prespective
 
-
-
-
-.cards--debug .card{
-  transform:
-    translateX(-1*$debug-gutter) translateY($debug-gutter) translateZ(0em)
-    rotateX(30deg) rotateY(30deg) rotateZ(-20deg);
+.cards--debug{
+  
+  .card{
+    transform:
+      translateX(-1*$debug-gutter) translateY($debug-gutter) translateZ(0em)
+      rotateX(30deg) rotateY(30deg) rotateZ(-20deg);
+      
+    .turner{
+    	transform: translateZ($debug-gutter) rotateZ(0deg);
+    }
+    
+    .flipper{
+    	transform: translateZ(2*$debug-gutter) rotateY(0deg);
+    }
+    
+    .back{
+      transform: translateZ(-1*$debug-gutter) rotateY(180deg);
+    }
+    
+    .face{
+      transform: translateZ($debug-gutter) rotateY(0deg);
+    }
+    
+  }
+  
 }
 
-.cards--debug .card .turner{
-	transform: translateZ($debug-gutter) rotateZ(0deg);
-}
 
-.cards--debug .card .flipper{
-	transform: translateZ(2*$debug-gutter) rotateY(0deg);
-}
-
-.cards--debug .card .back{
-  transform: translateZ(-1*$debug-gutter) rotateY(180deg);
-}
-
-.cards--debug .card .face{
-  transform: translateZ($debug-gutter) rotateY(0deg);
-}
-
-
-
-
-
-/**
- *  FLIP TRANSFORMS
- *  applicable to .flipper layer
- *
- */
+// FLIP TRANSFORMS
 
 .cards--debug{
 
@@ -159,12 +133,7 @@ $debug-gutter: 1em;
 }
 
 
-
-/**
- *  TURN TRANSFORMS
- *  applicable to .turner layer
- *
- */
+// TURN TRANSFORMS
 
 .cards--debug{
 
