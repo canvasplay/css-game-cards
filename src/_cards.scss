@@ -55,9 +55,9 @@
     justify-content: flex-end;
     align-items: flex-end;
   }
-  
 
 }
+
 
 .cards--column{
   
@@ -107,10 +107,8 @@
     align-items: flex-end;
     justify-content: flex-end;
   }
-  
 
 }
-
 
 
 .cards--reverse{
@@ -275,7 +273,7 @@ $fan-range: 60deg;
     .card{
       margin-left: -.5*$gutter;
       margin-right: -.5*$gutter;
-    }    
+    }
   }
   
   &.cards--column{
@@ -287,7 +285,7 @@ $fan-range: 60deg;
     .card{
       margin-top: -.75*$gutter;
       margin-bottom: -.75*$gutter;
-    }    
+    }
   }
   
   &.cards--fan{
@@ -299,7 +297,7 @@ $fan-range: 60deg;
     .card{
       margin-left: -.3*$gutter;
       margin-right: -.3*$gutter;
-    }    
+    }
   }
   
 }
