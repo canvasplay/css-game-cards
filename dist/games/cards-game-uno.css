@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css?family=Luckiest+Guy:400,700");
+.cards--uno .card {
+  font-family: 'Luckiest Guy', sans-serif; }
+
+.cards--uno .card .face {
+  color: #FFF;
+  background: #000;
+  line-height: 1; }
+  .cards--uno .card .face:after {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 0.07em solid;
+    border-radius: 0.11em;
+    content: ''; }
+  .cards--uno .card .face .value {
+    background: #FFF;
+    position: absolute;
+    border-radius: 100%;
+    width: 1.24em;
+    height: 1.24em;
+    color: #000;
+    font-size: .7em;
+    top: 50%;
+    left: 50%;
+    margin-top: -.62em;
+    margin-left: -.62em;
+    text-align: center;
+    transform: skewX(-15deg); }
+    .cards--uno .card .face .value span {
+      display: inline-block;
+      transform: skewX(15deg);
+      line-height: 1.5; }
+  .cards--uno .card .face .value-up {
+    font-size: .2em;
+    top: 1.2em;
+    left: 1.2em; }
+  .cards--uno .card .face .value-down {
+    font-size: .2em;
+    top: auto;
+    left: auto;
+    bottom: .6em;
+    right: .6em; }
+
+.cards--uno .card .back {
+  color: #FFF;
+  background: #000;
+  background: repeating-conic-gradient(#000 0 11deg, #222 0 21deg);
+  line-height: 1; }
+  .cards--uno .card .back:after {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 0.07em solid;
+    border-radius: 0.11em;
+    content: ''; }
+  .cards--uno .card .back > span {
+    background: #FFF;
+    display: inline-block;
+    border-radius: 100%;
+    width: 1.24em;
+    height: 1.24em;
+    color: #000;
+    line-height: 1.4;
+    font-size: .6em;
+    position: relative;
+    top: 15%;
+    transform: skewX(-15deg); }
+    .cards--uno .card .back > span > span {
+      display: inline-block;
+      transform: translateY(-25%) skewX(15deg);
+      font-size: .5em; }
+
+.cards--uno .card.red .face {
+  background: #ff0039; }
+  .cards--uno .card.red .face .value {
+    color: #ff0039; }
+
+.cards--uno .card.green .face {
+  background: #089600; }
+  .cards--uno .card.green .face .value {
+    color: #089600; }
+
+.cards--uno .card.blue .face {
+  background: #0041ff; }
+  .cards--uno .card.blue .face .value {
+    color: #0041ff; }
+
+.cards--uno .card.yellow .face {
+  background: #ffb600; }
+  .cards--uno .card.yellow .face .value {
+    color: #ffb600; }
+
+/*# sourceMappingURL=cards-game-uno.css.map */
