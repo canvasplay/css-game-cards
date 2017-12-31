@@ -1,13 +1,11 @@
 .cards{
-  display: flex;
   @include noselect;
-}
-
-.cards,
-.cards--row{
-
+  display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.cards--row{
   
   flex-direction: row;
   
@@ -60,7 +58,7 @@
 
 
 .cards--column{
-  
+  display: flex;
   flex-direction: column;
   
   &.cards--align-left,
@@ -185,7 +183,7 @@
 
 //will work only up to $fan-count cards
 //keep iteration limits
-$fan-count: 12;
+$fan-count: 15;
 
 //distance between cards
 //negative value cause overlapping
@@ -199,6 +197,8 @@ $fan-range: 60deg;
 
 
 .cards--fan{
+  
+  display: flex;
   
   //calculate offset angle to place cards standing up
   $angle-offset: -1 * ( 180deg - .5*$fan-range );
@@ -300,4 +300,34 @@ $fan-range: 60deg;
     }
   }
   
+}
+
+
+
+.cards--deck{
+  
+  display: flex;
+  
+  //hide all cards
+  .card{
+    display: none;
+    /*
+    margin-left: -.45em;
+    margin-right: -.45em;
+    */
+  }
+  
+  //show only the first 5 cards
+  .card:nth-last-child(-n+5){
+    display: inline-block;
+  }
+  
+  @for $i from 5 through 5 {
+    .card:nth-last-child(-n+#{$i}){
+      $o: $card-width - .5 - ($i * .02);
+      margin-left: -1 * $o;
+      margin-right: -1 * $o;
+    }
+  }
+
 }

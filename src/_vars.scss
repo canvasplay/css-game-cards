@@ -26,6 +26,7 @@
 
 }
 
+//card sizing must be defined based on 1em for the sake of scalability
 $card-width: 1em;
 $card-height: 1.5em;
 $card-radius: $card-width * .1;

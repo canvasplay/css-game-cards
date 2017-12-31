@@ -1,10 +1,22 @@
+@import "https://fonts.googleapis.com/css?family=Material+Icons|Open+Sans:400,400i,700,700i";
+
 body{
   background: #292935;
   background: url(../img/pattern.png) 0 0 repeat #292935;
   color: #00BCD4;
   padding: 3em;
+  font-family: Open Sans;
 }
 
+h1{
+  font-weight: 800;
+  color: #FFF;
+  margin-top: 2em;
+}
+p{
+  color: #AAA;
+  margin-bottom: 2em;
+}
 .card-view.cards,
 .cards-view > .cards {
     min-height: 26em;
@@ -20,6 +32,19 @@ body{
   top: 0; left: 0;
   padding: 1em;
   font-weight: normal;
+}
+
+.card-view > div:first-child:before{
+  content: attr(class);
+  position: absolute;
+  top: 2.5em;
+  left: 0;
+  padding: 1em 1.4em;
+  color: #eee780;
+  font-family: Consolas, monaco, monospace;
+  width: 18em;
+  word-spacing: 100em;
+  /* color: #E91E63; */
 }
 
 .card{

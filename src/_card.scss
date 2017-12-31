@@ -1,5 +1,3 @@
-
-
 .card,
 .card .turner,
 .card .flipper,
@@ -8,6 +6,7 @@
 	position: relative;
 	width: $card-width;
 	height: $card-height;
+	line-height: $card-height;
 }
 
 .card{
@@ -19,14 +18,14 @@
     @include noselect;
 }
 
-
 .card .turner,
 .card .flipper{
+  position: relative;
 	transform-style: preserve-3d;
 	transform-origin: 50% 50%;
 	transition: $transition;
 }
-	
+
 .card .back,
 .card .face {
 	position: absolute;

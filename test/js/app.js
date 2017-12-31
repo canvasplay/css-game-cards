@@ -31,5 +31,9 @@ $(window).ready(function(){
 	});
 
 
+  $('.cards--uno .card').on('click', function(){$(this).toggleClass('flip')});
+  $('.cards--poker .card').on('click', function(){$(this).toggleClass('flip')});
+  $('.four-in-letters .card').on('click', function(){$(this).toggleClass('flip')});
+
 
 })

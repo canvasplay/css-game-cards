@@ -16,8 +16,10 @@ var CardView = Backbone.View.extend({
     var data = this.model.toJSON().arguments;
 
     var $card = this.$el.find('.card');
+    var $classes = this.$el.find('> div:first-child');
     
-    var classes = ['card'];
+    //var classes = ['card'];
+    var classes = [];
     
     var flip = _.find(data,function(i){ return i.name=="flip" });
     if(flip) classes.push('flip');
@@ -31,7 +33,10 @@ var CardView = Backbone.View.extend({
     var twist = _.find(data,function(i){ return i.name=="twist" });
     if(twist) classes.push('twist');
     
-    $card[0].className = classes.join(' ');
+    $card[0].className = 'card '+ classes.join(' ');
+    $classes[0].className = classes.join(' ');
+    
+    
 
     
     return;

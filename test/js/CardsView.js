@@ -24,5 +24,5 @@ var CardsView = Backbone.View.extend({
     $(e.currentTarget).toggleClass('flip');
     
   }
-                                     
+  
 });

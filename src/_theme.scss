@@ -9,6 +9,7 @@
   	background: #FFF;
   	
   	> i{
+  	  font-size: 1em;
       vertical-align: text-bottom;
     }
 
@@ -22,7 +23,7 @@
       display: block;
       position: absolute;
       top: 0; left: 0;
-      border: 0.15em solid;
+      border: $card-radius solid;
       border-radius: $card-radius;
       width: $card-width;
       height: $card-height;

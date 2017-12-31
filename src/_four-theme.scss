@@ -1,0 +1,82 @@
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+.game-cards.four-in-letters{
+  
+  font-family: 'Montserrat', sans-serif;
+  
+  .card{
+    //font-weight:bold;
+    font-size: 4em;
+  }
+  
+  .card .face{
+    color: #FFF;
+    background: #000;
+    line-height: 1;
+  
+    
+    &:after{
+      display: block;
+      position: absolute;
+      top: 0; left: 0; right:0; bottom:0;
+      border: 0.05em solid;
+      border-radius: 0.1em;
+      content: '';
+    }
+    
+    span{
+      background: #000;
+      line-height: 0;
+      font-size: .8em;
+      position: relative;
+      display: block;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: bold;
+
+      &:before,
+      &:after{
+        display: block;
+        position: absolute;
+        top: 50%;
+        background: #FFF;
+        content: '';
+        height: 0.04em;
+        margin-top: -.02em;
+        left: 0; right: 0;
+      }
+      
+      
+      &:after{
+        background: #000;
+        left: .1em; right: .1em;
+      }
+      
+      
+    }
+    
+  }
+  
+  .card .back{
+    color: #000;
+    background: #f4e601;
+    line-height: 1;
+    
+    span{
+      background: #000;
+      display: inline-block;
+      border-radius: 100%;
+      width: 1.24em;
+      height: 1.24em;
+      color: #FFF;
+      line-height: 1.2;
+      font-size: .6em;
+      position: relative;
+      top: 8%;
+    }
+    
+  }
+  
+  
+}

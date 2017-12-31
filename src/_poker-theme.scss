@@ -1,0 +1,82 @@
+.cards--poker{
+  
+  .card{
+    
+    .back{
+      background: #bf0000;
+      overflow: hidden;
+    }
+  
+    .face{
+      color:#bf0000;
+    }
+    
+    .rank{
+      display: block;
+      position: absolute;
+      padding: 0.35em 0.5em;
+      font-size: 0.25em;
+      font-weight: bold;
+      white-space: pre;
+      line-height: 1;
+      top: 0;
+      left: 0;
+    }
+    
+    .suit{
+        font-size: .8em;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    
+  }
+  
+  
+  
+  //red colored
+  .card.diamonds .face,
+  .card.hearts .face{
+    color:#bf0000;
+  }
+  //black colored
+  .card.spades .face,
+  .card.clubs .face{
+    color:#000;
+  }
+
+  
+  /* diamonds */
+  .card.diamonds .rank:after{
+      content: "\A\2666";
+  }
+  .card.diamonds .suit:after{
+      content: "\2666";
+  }
+  
+  /* hearts */
+  .card.hearts .rank:after{
+      content: "\A\2665";
+  }
+  .card.hearts .suit:after{
+      content: "\2665";
+  }
+  
+  /* spades */
+  .card.spades .rank:after{
+      content: "\A\2660";
+  }
+  .card.spades .suit:after{
+      content: "\2660";
+  }
+  
+  /* clubs */
+  .card.clubs .rank:after{
+      content: "\A\2663";
+  }
+  .card.clubs .suit:after{
+      content: "\2663";
+  }
+
+}
