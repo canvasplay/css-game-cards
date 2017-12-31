@@ -164,7 +164,6 @@
   
   $r: 25;
 
-
   .card {               transform: rotateZ(-20deg); }
   .card:nth-child(2n) { transform: rotateZ(-10deg); }
   .card:nth-child(3n) { transform: rotateZ(12deg); }
@@ -185,10 +184,6 @@
 //keep iteration limits
 $fan-count: 15;
 
-//distance between cards
-//negative value cause overlapping
-$fan-gutter: $card-width * -.25;
-
 //radius of fan curve
 $fan-radius: 7em;
 
@@ -206,16 +201,7 @@ $fan-range: 60deg;
   //calculate position offset to keep cards aligned
   //we are ignoring x offset for the sake
   $cx: 0em; $cy: $fan-radius;
-    
-  /*
-  //apply gutter separator
-  //also reset gutter for first card
-  //or last card if reversed
-  .card{ margin-left: $fan-gutter }
-  &:not(.cards--reverse) .card:first-child{ margin-left: 0}
-  &.cards--reverse .card:last-child{ margin-left: 0}
-  */
-  
+
   //iterate up to $fan-count times
   //from $i to $n
   @for $n from 1 through $fan-count {
