@@ -37,3 +37,154 @@ $transition-fn: cubic-bezier(0.175, 0.825, 0.3, 1.15);
 $transition: transform $transition-duration $transition-fn;
 
 $gutter: 0.35em;
+
+
+@mixin cards--align($direction, $reverse){
+  
+  @if $direction != 'column'{
+    
+    flex-direction: row;
+    
+    &.cards--align-left,
+    &.cards--align-center-left{
+      justify-content: flex-start;
+      align-items: center;
+    }
+    
+    /* default behavior
+    &.cards--align-center,
+    &.cards--align-center-center{
+      justify-content: center;
+      align-items: center;
+    }
+    */
+    &.cards--align-right,
+    &.cards--align-center-right{
+      justify-content: flex-end;
+      align-items: center;
+    }
+    
+    &.cards--align-top-left{
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    &.cards--align-top,
+    &.cards--align-top-center{
+      justify-content: center;
+      align-items: flex-start;
+    }
+    &.cards--align-top-right{
+      justify-content: flex-end;
+      align-items: flex-start;
+    }
+    
+    &.cards--align-bottom-left{
+      justify-content: flex-start;
+      align-items: flex-end;
+    }
+    &.cards--align-bottom,
+    &.cards--align-bottom-center{
+      justify-content: center;
+      align-items: flex-end;
+    }
+    &.cards--align-bottom-right{
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+    
+    @if $reverse{
+      
+      flex-direction: row-reverse;
+      
+      &.cards--align-left,
+      &.cards--align-top-left,
+      &.cards--align-center-left,
+      &.cards--align-bottom-left{
+        justify-content: flex-end;
+      }
+      
+      &.cards--align-right,
+      &.cards--align-top-right,
+      &.cards--align-center-right,
+      &.cards--align-bottom-right{
+        justify-content: flex-start;
+      }
+      
+    }
+    
+  }
+  @else{
+    
+    flex-direction: column;
+    
+    &.cards--align-left,
+    &.cards--align-center-left{
+      align-items: flex-start;
+      justify-content: center;
+    }
+    
+    /* default behavior
+    &.cards--align-center,
+    &.cards--align-center-center{
+      align-items: center;
+      justify-content: center;
+    }
+    */
+    &.cards--align-right,
+    &.cards--align-center-right{
+      align-items: flex-end;
+      justify-content: center;
+    }
+    
+    &.cards--align-top-left{
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+    &.cards--align-top,
+    &.cards--align-top-center{
+      align-items: center;
+      justify-content: flex-start;
+    }
+    &.cards--align-top-right{
+      align-items: flex-end;
+      justify-content: flex-start;
+    }
+    
+    &.cards--align-bottom-left{
+      align-items: flex-start;
+      justify-content: flex-end;
+    }
+    &.cards--align-bottom,
+    &.cards--align-bottom-center{
+      align-items: center;
+      justify-content: flex-end;
+    }
+    &.cards--align-bottom-right{
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+
+      
+    @if $reverse{
+
+      flex-direction: column-reverse;
+      
+      &.cards--align-top,
+      &.cards--align-top-left,
+      &.cards--align-top-center,
+      &.cards--align-top-right{
+        justify-content: flex-end;
+      }
+      
+      &.cards--align-bottom,
+      &.cards--align-bottom-left,
+      &.cards--align-bottom-center,
+      &.cards--align-bottom-right{
+        justify-content: flex-start;
+      }
+      
+    }
+    
+  }
+  
+}
