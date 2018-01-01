@@ -3,9 +3,11 @@
   /* hearts */
   /* spades */
   /* clubs */ }
+  .game-cards.cards-theme--poker .card.back,
   .game-cards.cards-theme--poker .card .back {
     background: #bf0000;
     overflow: hidden; }
+  .game-cards.cards-theme--poker .card.face,
   .game-cards.cards-theme--poker .card .face {
     color: #bf0000; }
   .game-cards.cards-theme--poker .card .rank {
@@ -24,10 +26,14 @@
     top: 0;
     left: 0;
     right: 0; }
+  .game-cards.cards-theme--poker .card.diamonds.face,
   .game-cards.cards-theme--poker .card.diamonds .face,
-  .game-cards.cards-theme--poker .card.hearts .face {
+  .game-cards.cards-theme--poker .card.hearts .face,
+  .game-cards.cards-theme--poker .card.hearts.face {
     color: #bf0000; }
+  .game-cards.cards-theme--poker .card.spades.face,
   .game-cards.cards-theme--poker .card.spades .face,
+  .game-cards.cards-theme--poker .card.clubs.face,
   .game-cards.cards-theme--poker .card.clubs .face {
     color: #000; }
   .game-cards.cards-theme--poker .card.diamonds .rank:after {

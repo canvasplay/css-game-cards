@@ -2,10 +2,12 @@
 .game-cards.cards-theme--uno .card {
   font-family: 'Luckiest Guy', sans-serif; }
 
+.game-cards.cards-theme--uno .card.face,
 .game-cards.cards-theme--uno .card .face {
   color: #FFF;
   background: #000;
   line-height: 1; }
+  .game-cards.cards-theme--uno .card.face:after,
   .game-cards.cards-theme--uno .card .face:after {
     display: block;
     position: absolute;
@@ -16,6 +18,7 @@
     border: 0.07em solid;
     border-radius: 0.11em;
     content: ''; }
+  .game-cards.cards-theme--uno .card.face .value,
   .game-cards.cards-theme--uno .card .face .value {
     background: #FFF;
     position: absolute;
@@ -30,14 +33,17 @@
     margin-left: -.62em;
     text-align: center;
     transform: skewX(-15deg); }
+    .game-cards.cards-theme--uno .card.face .value span,
     .game-cards.cards-theme--uno .card .face .value span {
       display: inline-block;
       transform: skewX(15deg);
       line-height: 1.5; }
+  .game-cards.cards-theme--uno .card.face .value-up,
   .game-cards.cards-theme--uno .card .face .value-up {
     font-size: .2em;
     top: 1.2em;
     left: 1.2em; }
+  .game-cards.cards-theme--uno .card.face .value-down,
   .game-cards.cards-theme--uno .card .face .value-down {
     font-size: .2em;
     top: auto;
@@ -45,11 +51,13 @@
     bottom: .6em;
     right: .6em; }
 
+.game-cards.cards-theme--uno .card.back,
 .game-cards.cards-theme--uno .card .back {
   color: #FFF;
   background: #000;
   background: repeating-conic-gradient(#000 0 11deg, #222 0 21deg);
   line-height: 1; }
+  .game-cards.cards-theme--uno .card.back:after,
   .game-cards.cards-theme--uno .card .back:after {
     display: block;
     position: absolute;
@@ -60,6 +68,7 @@
     border: 0.07em solid;
     border-radius: 0.11em;
     content: ''; }
+  .game-cards.cards-theme--uno .card.back > span,
   .game-cards.cards-theme--uno .card .back > span {
     background: #FFF;
     display: inline-block;
@@ -72,29 +81,38 @@
     position: relative;
     top: 15%;
     transform: skewX(-15deg); }
+    .game-cards.cards-theme--uno .card.back > span > span,
     .game-cards.cards-theme--uno .card .back > span > span {
       display: inline-block;
       transform: translateY(-25%) skewX(15deg);
       font-size: .5em; }
 
-.game-cards.cards-theme--uno .card.red .face {
+.game-cards.cards-theme--uno .card.red .face,
+.game-cards.cards-theme--uno .card.red.face {
   background: #ff0039; }
-  .game-cards.cards-theme--uno .card.red .face .value {
+  .game-cards.cards-theme--uno .card.red .face .value,
+  .game-cards.cards-theme--uno .card.red.face .value {
     color: #ff0039; }
 
-.game-cards.cards-theme--uno .card.green .face {
+.game-cards.cards-theme--uno .card.green .face,
+.game-cards.cards-theme--uno .card.green.face {
   background: #089600; }
-  .game-cards.cards-theme--uno .card.green .face .value {
+  .game-cards.cards-theme--uno .card.green .face .value,
+  .game-cards.cards-theme--uno .card.green.face .value {
     color: #089600; }
 
-.game-cards.cards-theme--uno .card.blue .face {
+.game-cards.cards-theme--uno .card.blue .face,
+.game-cards.cards-theme--uno .card.blue.face {
   background: #0041ff; }
-  .game-cards.cards-theme--uno .card.blue .face .value {
+  .game-cards.cards-theme--uno .card.blue .face .value,
+  .game-cards.cards-theme--uno .card.blue.face .value {
     color: #0041ff; }
 
-.game-cards.cards-theme--uno .card.yellow .face {
+.game-cards.cards-theme--uno .card.yellow .face,
+.game-cards.cards-theme--uno .card.yellow.face {
   background: #ffb600; }
-  .game-cards.cards-theme--uno .card.yellow .face .value {
+  .game-cards.cards-theme--uno .card.yellow .face .value,
+  .game-cards.cards-theme--uno .card.yellow.face .value {
     color: #ffb600; }
 
 /*# sourceMappingURL=theme-uno.css.map */

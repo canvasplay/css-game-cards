@@ -11,6 +11,7 @@
     font-family: 'Luckiest Guy', sans-serif;
   }
   
+  .card.face,
   .card .face{
     color: #FFF;
     background: #000;
@@ -59,6 +60,7 @@
     
   }
   
+  .card.back,
   .card .back{
     color: #FFF;
     background: #000;
@@ -100,22 +102,26 @@
   }
 
 
-  .card.red .face{
+  .card.red .face,
+  .card.red.face{
       background: $red;
       .value{ color: $red }
   }
 
-  .card.green .face{
+  .card.green .face,
+  .card.green.face{
     background: $green;
     .value{ color: $green }
   }
   
-  .card.blue .face{
+  .card.blue .face,
+  .card.blue.face{
     background: $blue;
     .value{ color: $blue }
   }
   
-  .card.yellow .face{
+  .card.yellow .face,
+  .card.yellow.face{
     background: $yellow;
     .value{ color: $yellow }
   }

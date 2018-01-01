@@ -2,11 +2,13 @@
   
   .card{
     
+    &.back,
     .back{
       background: #bf0000;
       overflow: hidden;
     }
   
+    &.face,
     .face{
       color:#bf0000;
     }
@@ -36,12 +38,16 @@
   
   
   //red colored
+  .card.diamonds.face,
   .card.diamonds .face,
-  .card.hearts .face{
+  .card.hearts .face,
+  .card.hearts.face{
     color:#bf0000;
   }
   //black colored
+  .card.spades.face,
   .card.spades .face,
+  .card.clubs.face,
   .card.clubs .face{
     color:#000;
   }

@@ -2,35 +2,15 @@
 
 .card{
   
+  &.face,
+  &.back,
   .face,
   .back{
   	box-shadow: 0 0.1em 0.7em rgba(0,0,0,0.3);
   	border-radius: $card-radius;
   	background: #FFF;
   	color: #333;
-  	
-  	> i{
-  	  font-size: 1em;
-      vertical-align: text-bottom;
-    }
+  }
 
-  }
-  
-  &.outline{
-    
-    .face:after,
-    .back:after{
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0; left: 0;
-      border: $card-radius solid;
-      border-radius: $card-radius;
-      width: $card-width;
-      height: $card-height;
-    }
-    
-  }
-    
 }
 

@@ -3,10 +3,12 @@
   font-family: 'Montserrat', sans-serif; }
   .game-cards.cards-theme--cuatro .card {
     font-size: 4em; }
+  .game-cards.cards-theme--cuatro .card.face,
   .game-cards.cards-theme--cuatro .card .face {
     color: #FFF;
     background: #000;
     line-height: 1; }
+    .game-cards.cards-theme--cuatro .card.face:after,
     .game-cards.cards-theme--cuatro .card .face:after {
       display: block;
       position: absolute;
@@ -17,6 +19,7 @@
       border: 0.05em solid;
       border-radius: 0.1em;
       content: ''; }
+    .game-cards.cards-theme--cuatro .card.face span,
     .game-cards.cards-theme--cuatro .card .face span {
       background: #000;
       line-height: 0;
@@ -26,7 +29,9 @@
       top: 50%;
       transform: translateY(-50%);
       font-weight: bold; }
-      .game-cards.cards-theme--cuatro .card .face span:before, .game-cards.cards-theme--cuatro .card .face span:after {
+      .game-cards.cards-theme--cuatro .card.face span:before, .game-cards.cards-theme--cuatro .card.face span:after,
+      .game-cards.cards-theme--cuatro .card .face span:before,
+      .game-cards.cards-theme--cuatro .card .face span:after {
         display: block;
         position: absolute;
         top: 50%;
@@ -36,14 +41,17 @@
         margin-top: -.02em;
         left: 0;
         right: 0; }
+      .game-cards.cards-theme--cuatro .card.face span:after,
       .game-cards.cards-theme--cuatro .card .face span:after {
         background: #000;
         left: .1em;
         right: .1em; }
+  .game-cards.cards-theme--cuatro .card.back,
   .game-cards.cards-theme--cuatro .card .back {
     color: #000;
     background: #f4e601;
     line-height: 1; }
+    .game-cards.cards-theme--cuatro .card.back span,
     .game-cards.cards-theme--cuatro .card .back span {
       background: #000;
       display: inline-block;
