@@ -1,72 +1,22 @@
-.cards{
-  @include noselect;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  @include cards--align('row',false);
-}
-
-
-//.cards--row{} by default
-
-
-.cards--column{
-  @include cards--align('column',false);
-}
-
-.cards--reverse{
-  
-  &:not(.cards--column){
-    @include cards--align('row',true);
-  }
-
-  &.cards--column{
-    @include cards--align('column',true);
-  }
-
-}
-
-
-
-
-
-
-/* RANDOM ARRANGEMENT */
-
-.cards--random{
-  
-  $r: 25;
-
-  .card {               transform: rotateZ(-20deg); }
-  .card:nth-child(2n) { transform: rotateZ(-10deg); }
-  .card:nth-child(3n) { transform: rotateZ(12deg); }
-  .card:nth-child(5n) { transform: rotateZ(3deg); }
-
-
-}
-
-
-
-
 /**
- *  CARDS--FAN
+ *  CARDS-FAN
  *  Arrange cards as a fan
  */
-
-//will work only up to $fan-count cards
-//keep iteration limits
-$fan-count: 15;
-
-//radius of fan curve
-$fan-radius: 7em;
-
-//angle range of the fan
-$fan-range: 60deg;
-
-
-.cards--fan{
+ 
+.cards-fan{
   
-  display: flex;
+  @include noselect;
+  @include cardsbox;
+  
+  //keep iteration limits
+  //will only work up to $fan-count cards
+  $fan-count: 15;
+  
+  //radius of fan curve
+  $fan-radius: 7em;
+  
+  //angle range of the fan
+  $fan-range: 60deg;
   
   //calculate offset angle to place cards standing up
   $angle-offset: -1 * ( 180deg - .5*$fan-range );
@@ -104,7 +54,8 @@ $fan-range: 60deg;
       transform: translateY($o-y) rotateZ(180deg - $angle-in-degs);
     }
 
-    //invert indexes to support 'reverse' modifier
+    //reverse modifier
+    //as easy as iterate indexes inverted
     &.cards--reverse{
       .card:nth-of-type(#{$i}):nth-last-of-type(#{$ii}) {
         //transform: translateX($o-x) translateY($o-y)  rotateZ(180deg - $angle-in-degs);
@@ -115,63 +66,26 @@ $fan-range: 60deg;
   }
   }
   
-}
-
-
-.cards--overlap{
-
-  $gutter: .5em;
+  //alignment modifier
+  @include cards--align('row',false);
   
-  //default as .cards-row
-  &:not(.cards--column):not(.cards--fan){
-    .card{
-      margin-left: -.5*$gutter;
-      margin-right: -.5*$gutter;
-    }
+  //reverse modifier
+  &.cards--reverse{
+    @include cards--align('row',true);
   }
   
-  &.cards--column{
-    .card{
-      margin-top: -.75*$gutter;
-      margin-bottom: -.75*$gutter;
-    }
-  }
+  //random modifier...
   
-  &.cards--fan{
+  //overlap modifier
+  &.cards--overlap{
+    
+    $gutter: .5em;
+    
     .card{
       margin-left: -.3*$gutter;
       margin-right: -.3*$gutter;
     }
-  }
-  
-}
-
-
-
-.cards--deck{
-  
-  display: flex;
-  
-  //hide all cards
-  .card{
-    display: none;
-    /*
-    margin-left: -.45em;
-    margin-right: -.45em;
-    */
-  }
-  
-  //show only the first 5 cards
-  .card:nth-last-child(-n+5){
-    display: inline-block;
-  }
-  
-  @for $i from 5 through 5 {
-    .card:nth-last-child(-n+#{$i}){
-      $o: $card-width - .5 - ($i * .02);
-      margin-left: -1 * $o;
-      margin-right: -1 * $o;
-    }
+    
   }
 
 }

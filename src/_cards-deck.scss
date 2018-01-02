@@ -1,0 +1,55 @@
+/**
+ *  CARDS-DECK
+ *  Arrange cards as a deck
+ */
+
+ 
+.cards-deck{
+  
+  @include noselect;
+  @include cardsbox;
+
+  //hide all cards
+  .card{
+    display: none;
+    /*
+    margin-left: -.45em;
+    margin-right: -.45em;
+    */
+  }
+  
+  //show only the first 5 cards
+  .card:nth-last-child(-n+5){
+    display: inline-block;
+  }
+  
+  @for $i from 5 through 5 {
+    .card:nth-last-child(-n+#{$i}){
+      $o: $card-width - .5 - ($i * .02);
+      margin-left: -1 * $o;
+      margin-right: -1 * $o;
+    }
+  }
+
+  
+  //alignment modifier
+  @include cards--align('row',false);
+
+  //reverse modifier
+  &.cards--reverse{
+    @include cards--align('row',true);
+  }
+
+  //random modifier
+  &.cards--random{
+    
+    .card {               transform: rotateZ(-20deg); }
+    .card:nth-child(2n) { transform: rotateZ(-10deg); }
+    .card:nth-child(3n) { transform: rotateZ(12deg); }
+    .card:nth-child(5n) { transform: rotateZ(3deg); }
+    
+  }
+  
+  //overlap modifier...
+
+}

@@ -1,0 +1,42 @@
+/**
+ *  CARDS-ROW
+ *  Arrange cards as a row
+ */
+ 
+//.cards, //is a simplified alias
+.cards-row{
+  
+  @include noselect;
+  @include cardsbox;
+  
+  //alignment modifier
+  @include cards--align('row',false);
+
+  //reverse modifier
+  &.cards--reverse{
+    @include cards--align('row',true);
+  }
+
+  //random modifier
+  &.cards--random{
+    
+    .card {               transform: rotateZ(-20deg); }
+    .card:nth-child(2n) { transform: rotateZ(-10deg); }
+    .card:nth-child(3n) { transform: rotateZ(12deg); }
+    .card:nth-child(5n) { transform: rotateZ(3deg); }
+    
+  }
+  
+  //overlap modifier
+  &.cards--overlap{
+    
+    $gutter: .5em;
+    
+    .card{
+      margin-left: -.5*$gutter;
+      margin-right: -.5*$gutter;
+    }
+    
+  }
+
+}

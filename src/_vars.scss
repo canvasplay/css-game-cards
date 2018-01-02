@@ -3,6 +3,12 @@
   user-select: none;
 }
 
+@mixin cardsbox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @mixin card-transition($fn, $easing, $duration){
   transition: $fn $easing $duration;
 }

@@ -1,0 +1,41 @@
+/**
+ *  CARDS-COLUMN
+ *  Arrange cards as a column
+ */
+ 
+.cards-column{
+  
+  @include noselect;
+  @include cardsbox;
+
+  //alignment modifier
+  @include cards--align('column',false);
+
+  //reverse modifier
+  &.cards--reverse{
+    @include cards--align('column',true);
+  }
+  
+  //random modifier
+  &.cards--random{
+    
+    .card {               transform: rotateZ(-20deg); }
+    .card:nth-child(2n) { transform: rotateZ(-10deg); }
+    .card:nth-child(3n) { transform: rotateZ(12deg); }
+    .card:nth-child(5n) { transform: rotateZ(3deg); }
+    
+  }
+  
+  //overlap modifier
+  &.cards--overlap{
+    
+    $gutter: .5em;
+    
+    .card{
+      margin-top: -.75*$gutter;
+      margin-bottom: -.75*$gutter;
+    }
+    
+  }
+  
+}
