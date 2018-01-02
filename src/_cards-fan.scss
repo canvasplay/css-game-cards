@@ -49,7 +49,7 @@
     $ii: $n - $i;
 
     //apply transform for $i/$ii indexes
-    .card:nth-of-type(#{$ii}):nth-last-of-type(#{$i}){
+    .card:nth-child(#{$ii}):nth-last-child(#{$i}){
       //transform: translateX($o-x) translateY($o-y)  rotateZ(180deg - $angle-in-degs);
       transform: translateY($o-y) rotateZ(180deg - $angle-in-degs);
     }
@@ -57,7 +57,7 @@
     //reverse modifier
     //as easy as iterate indexes inverted
     &.cards--reverse{
-      .card:nth-of-type(#{$i}):nth-last-of-type(#{$ii}) {
+      .card:nth-child(#{$i}):nth-last-child(#{$ii}) {
         //transform: translateX($o-x) translateY($o-y)  rotateZ(180deg - $angle-in-degs);
         transform: translateY($o-y)  rotateZ(180deg - $angle-in-degs);
       }
