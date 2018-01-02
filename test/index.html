@@ -3,6 +3,8 @@
   
 <head>
   
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
   <!--<link href="../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />-->
   <link href="../dist/game-cards.css" rel="stylesheet" />
@@ -25,20 +27,24 @@
     var classes = [];
     
     var mode = _.find(arguments,function(i){ return i.name=="mode" });
-    if(mode && mode.value) classes.push('cards--'+mode.value);
+    if(mode && mode.value) classes.push('cards-'+mode.value);
     
     var reverse = _.find(arguments,function(i){ return i.name=="reverse" });
     if(reverse && reverse.value=='on') classes.push('cards--reverse');
+    
+    var random = _.find(arguments,function(i){ return i.name=="random" });
+    if(random && random.value=='on') classes.push('cards--random');
     
     var overlap = _.find(arguments,function(i){ return i.name=="overlap" });
     if(overlap && overlap.value=='on') classes.push('cards--overlap');
     
     var align = _.find(arguments,function(i){ return i.name=="align" });
-    if(align && align.value) classes.push('cards--align-'+align.value);
+    if(align && align.value && align.value!=='default') classes.push('cards--align-'+align.value);
     
   %>
   
   <div class="cards <%= classes.join(' ') %>">
+  <div class="class-inspector">.<%= classes.join(' .') %></div>
   <% for(var i=0; i<count; i++){ %>
   
       <div class="card">
@@ -76,9 +82,12 @@
   
 </section>
 
-<div class="card-view cards cards--row cards--debug">
+<section class="container">
 
-  <div>card </div>
+<h3>Card Element</h3>
+<div class="test-wrapper card-view cards cards-row cards--debug">
+
+  <div class="class-inspector"></div>
   
   <label class="input-debug">
     <input type="checkbox" value="true" name="3d" checked>
@@ -130,6 +139,18 @@
       <i class="material-icons"></i>
       <span>spin</span>
     </label>
+    <!--
+    <label>
+      <input type="checkbox" value="true" name="flipX">
+      <i class="material-icons"></i>
+      <span>flip-x</span>
+    </label>
+    <label>
+      <input type="checkbox" value="true" name="spinX">
+      <i class="material-icons"></i>
+      <span>spin-x</span>
+    </label>
+    -->
   </div>
   </div>
 
@@ -181,7 +202,8 @@
 
 
 
-<div class="cards-view">
+<h3>Cards Group</h3>
+<div class="test-wrapper cards-view">
   
 </div>
 
@@ -211,7 +233,7 @@
         <div class="btn-group">
           
           <label>
-            <input type="radio" name="mode" value="row">
+            <input type="radio" name="mode" value="row" checked>
             <i class="material-icons"></i>
             <span>row</span>
           </label>
@@ -227,12 +249,6 @@
             <i class="material-icons"></i>
             <span>fan</span>
           </label>
-  
-          <label>
-            <input type="radio" name="mode" value="random">
-            <i class="material-icons"></i>
-            <span>random</span>
-          </label>
           
           <label>
             <input type="radio" name="mode" value="deck">
@@ -245,27 +261,30 @@
       </div>
     
       <div class="form-group">
-        <label>reverse</label>
+        <label>modifiers</label>
         <div class="btn-group">
+          
           <label>
             <input type="checkbox" name="reverse">
             <i class="material-icons"></i>
             <span>reverse</span>
           </label>
-        </div>
-      </div>
-    
-      <div class="form-group">
-        <label>overlap</label>
-        <div class="btn-group">
+          
+          <label>
+            <input type="checkbox" name="random">
+            <i class="material-icons"></i>
+            <span>random</span>
+          </label>
+
           <label>
             <input type="checkbox" name="overlap">
             <i class="material-icons"></i>
             <span>overlap</span>
           </label>
+
         </div>
       </div>
-    
+      
       <div class="form-group">
 
         <label>alignment</label>
@@ -295,7 +314,8 @@
           </label>
 
           <label>
-            <input type="radio" name="align" value="center">
+            <!--<input type="radio" name="align" value="center">-->
+            <input type="radio" name="align" value="default" checked>
             <i class="material-icons"></i>
           </label>
 
@@ -335,7 +355,7 @@
 <div class="game-cards cards-theme--uno">
   <h1>Uno Cards</h1>
   <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <div class="cards cards--fan">
+  <div class="cards cards-fan">
     <div class="card  red">
       <div class="flipper">
         <div class="face">
@@ -437,7 +457,7 @@
       </div>
     </div>
   </div><br/>
-  <div class="cards cards--fan">
+  <div class="cards cards-fan">
     <div class="card  yellow">
       <div class="flipper">
         <div class="face">
@@ -539,7 +559,7 @@
       </div>
     </div>
   </div><br/>
-  <div class="cards cards--fan">
+  <div class="cards cards-fan">
     <div class="card  green">
       <div class="flipper">
         <div class="face">
@@ -641,7 +661,7 @@
       </div>
     </div>
   </div><br/>
-  <div class="cards cards--fan">
+  <div class="cards cards-fan">
     <div class="card  blue">
       <div class="flipper">
         <div class="face">
@@ -753,7 +773,7 @@
   <h1>Poker Cards</h1>
   <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-  <div class="cards cards--fan">
+  <div class="cards cards-fan">
     <div class="card diamonds  rank-A">
       <div class="flipper">
         <div class="face">
@@ -875,7 +895,7 @@
     </div>
   </div>
   <br>
-  <div class="cards cards--fan">
+  <div class="cards cards-fan">
     <div class="card spades  rank-A">
       <div class="flipper">
         <div class="face">
@@ -997,7 +1017,7 @@
     </div>
   </div>
   <br>
-  <div class="cards cards--fan">
+  <div class="cards cards-fan">
     <div class="card hearts  rank-A">
       <div class="flipper">
         <div class="face">
@@ -1119,7 +1139,7 @@
     </div>
   </div>
   <br>
-  <div class="cards cards--fan">
+  <div class="cards cards-fan">
     <div class="card clubs  rank-A">
       <div class="flipper">
         <div class="face">
@@ -1250,7 +1270,7 @@
   <h1>Cuatro Letras</h1>
   <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   
-  <div class="cards cards--fan">
+  <div class="cards cards-fan">
     <div class="card flip">
       <div class="flipper">
         <div class="face"><span>C</span></div>
@@ -1289,7 +1309,7 @@
     </div>
   </div>
   <br>
-  <div class="cards cards--fan">
+  <div class="cards cards-fan">
     <div class="card">
       <div class="flipper">
         <div class="face"><span>L</span></div>
@@ -1338,7 +1358,7 @@
   
 </div>
 
-
+</section>
 
 <script src="lib/jquery.min.js"></script>
 <script src="lib/underscore-min.js"></script>

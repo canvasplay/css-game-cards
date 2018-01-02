@@ -4,7 +4,6 @@ body{
   background: #292935;
   background: url(../img/pattern.png) 0 0 repeat #292935;
   color: #AAA;
-  padding: 3em;
   font-family: Open Sans;
 }
 
@@ -17,38 +16,42 @@ h1{
 h2{
   color: #00BCD4;
 }
+h3{
+  color: #FFF;
+}
 p{
   margin-bottom: 2em;
 }
-.card-view.cards,
-.cards-view > .cards {
-    min-height: 26em;
-    border: 1px dashed rgba(0,188,212,0.2);
-    border-radius: .5em;
-    margin: 1em 0;
-    position: relative;
+
+.test-wrapper{
+  border: 1px dashed rgba(0,188,212,0.2);
+  border-radius: .5em;
+  margin: 1em 0;
+  position: relative;
 }
 
-
-.card-view .input-debug{
+.class-inspector{
   position: absolute;
   top: 0; left: 0;
-  padding: 1em;
-  font-weight: normal;
-}
-
-.card-view > div:first-child{
-  position: absolute;
-  top: 2.5em;
-  left: 0;
-  padding: 1em 1.4em;
+  padding: 1em 1.2em;
   color: #eee780;
   font-family: Consolas, monaco, monospace;
   width: 18em;
   word-spacing: 100em;
 }
-.card-view > div:first-child:after{
-  content: attr(class);
+
+.card-view .input-debug{
+  position: absolute;
+  bottom: 0; left: 0;
+  padding: 1em;
+  font-weight: normal;
+  color: #00BCD4;
+}
+
+
+.card-view,
+.cards-view .cards{
+  min-height: 26em;
 }
 
 .card{
@@ -88,20 +91,6 @@ p{
 .cards .card .face strong:after,
 .cards .card .back strong:after{
   bottom: 0; right:0;
-}
-
-
-.cards-view .cards:before{
-  content: attr(class);
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 1em 1.4em;
-  color: #eee780;
-  font-family: Consolas, monaco, monospace;
-  width: 18em;
-  word-spacing: 100em;
-  /* color: #E91E63; */
 }
 
 

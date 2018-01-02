@@ -30,6 +30,9 @@ $(window).ready(function(){
 	  'model': csm
 	});
 
+  $('.card-view .card').on('click', function(){
+    $('form.card-form input[name="flip"]').click();
+  });
 
   $('.cards-theme--uno .card').on('click', function(){$(this).toggleClass('flip')});
   $('.cards-theme--poker .card').on('click', function(){$(this).toggleClass('flip')});
