@@ -30,11 +30,11 @@
   //overlap modifier
   &.cards--overlap{
     
-    $gutter: .5em;
+    $gutter: .25;
     
     .card{
-      margin-left: -.5*$gutter;
-      margin-right: -.5*$gutter;
+      margin-left: -1 * $card-width * $gutter;
+      margin-right: -1 * $card-width * $gutter;
     }
     
   }

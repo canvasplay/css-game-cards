@@ -74,7 +74,13 @@
     @include cards--align('row',true);
   }
   
-  //random modifier...
+  //random modifier
+  &.cards--random{
+    .card {               margin-top: -.35em; }
+    .card:nth-child(2n) { margin-top: -.15em; }
+    .card:nth-child(3n) { margin-top: .4em; }
+    .card:nth-child(5n) { margin-top: .2em; }
+  }
   
   //overlap modifier
   &.cards--overlap{
