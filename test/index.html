@@ -43,8 +43,8 @@
     
   %>
   
-  <div class="cards <%= classes.join(' ') %>">
   <div class="class-inspector">.<%= classes.join(' .') %></div>
+  <div class="cards <%= classes.join(' ') %>">
   <% for(var i=0; i<count; i++){ %>
   
       <div class="card">
@@ -356,6 +356,17 @@
   <h1>Uno Cards</h1>
   <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   <div class="cards cards-fan">
+    
+    <div class="card face red">
+      <div class="value value-up"><span>0</span></div>
+      <div class="value"><span>0</span></div>
+      <div class="value value-down"><span>0</span></div>
+    </div>
+    <div class="card back">
+      <span><span>UNO</span></span>
+    </div>
+    
+    <!--
     <div class="card  red">
       <div class="flipper">
         <div class="face">
@@ -376,6 +387,7 @@
         <div class="back"><span><span>UNO</span></span></div>
       </div>
     </div>
+    -->
     <div class="card flip red">
       <div class="flipper">
         <div class="face">
@@ -774,6 +786,13 @@
   <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
   <div class="cards cards-fan">
+    
+    <div class="card face diamonds rank-A">
+      <div class="suit"></div>
+      <div class="rank">A</div>
+    </div>
+
+    <!--
     <div class="card diamonds  rank-A">
       <div class="flipper">
         <div class="face">
@@ -783,6 +802,7 @@
         <div class="back"></div>
       </div>
     </div>
+    -->
     <div class="card diamonds  rank-2">
       <div class="flipper">
         <div class="face">
@@ -1271,12 +1291,18 @@
   <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   
   <div class="cards cards-fan">
+    
+    <div class="card back">
+      <span>4</span>
+    </div>
+    <!--
     <div class="card flip">
       <div class="flipper">
         <div class="face"><span>C</span></div>
         <div class="back"><span>4</span></div>
       </div>
     </div>
+    -->
     <div class="card flip">
       <div class="flipper">
         <div class="face"><span>U</span></div>
@@ -1310,12 +1336,19 @@
   </div>
   <br>
   <div class="cards cards-fan">
+    
+    <div class="card face">
+      <span>L</span>
+    </div>
+    
+    <!--
     <div class="card">
       <div class="flipper">
         <div class="face"><span>L</span></div>
         <div class="back"><span>4</span></div>
       </div>
     </div>
+    -->
     <div class="card">
       <div class="flipper">
         <div class="face"><span>E</span></div>

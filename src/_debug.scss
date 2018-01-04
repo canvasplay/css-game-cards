@@ -7,83 +7,77 @@ $debug-gutter: 1em;
 .cards--debug{
   perspective-origin: center center;
   perspective: 40em;
-}
-
-.cards--debug .card{
-  perspective: initial;
-  transform-style: preserve-3d;
-}
-
-.cards--debug .card,
-.cards--debug .card .turner,
-.cards--debug .card .flipper{
-  color: $debug-color;
-}
-
-.cards--debug .card .back,
-.cards--debug .card .face{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
   
-  //make both card sides' backfaces visible
-  backface-visibility: visible;
-}
-
-
-
-
-//LABELING LAYERS
-
-.cards--debug .card{
-  &:before,
-  .turner:before,
-  .flipper:before,
-  .back:before,
-  .face:before{
-    content: "." attr(class);
-    font-family: Consolas, monaco, monospace;
-    display: inline-block;
-    line-height: 1;
-    font-weight: normal;
-    color: $debug-color;
-    position: absolute;
-    font-size: 0.25em;
-    left: 0;
-    top: -1.5em;
+  .card{
+    perspective: initial;
+    transform-style: preserve-3d;
   }
-  &:before{ content: '.card' }
-}
-
-
-//OUTLINE LAYERS
-
-.cards--debug .card:after,
-.cards--debug .card .turner:after,
-.cards--debug .card .flipper:after{
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0; left: 0;
-  border: 0.03em solid $debug-color;
-  border-radius: $card-radius;
-	width: $card-width;
-	height: $card-height;
-	color: $debug-color;
-}
-
-.cards--debug .card .turner:after,
-.cards--debug .card .flipper:after{
-  border-style: dashed;
-  background: rgba(0,221,255,0.25);
-}
-
-
-// 3D prespective
-
-.cards--debug{
   
+  .card,
+  .turner,
+  .flipper{
+    color: $debug-color;
+  }
+
+  .card .back,
+  .card .face{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    
+    //make both card sides' backface visible
+    backface-visibility: visible;
+  }
+
+
+
+
+  //LABELING LAYERS
+  .card{
+    &:before,
+    .turner:before,
+    .flipper:before,
+    .back:before,
+    .face:before{
+      content: "." attr(class);
+      font-family: Consolas, monaco, monospace;
+      display: inline-block;
+      line-height: 1;
+      font-weight: normal;
+      color: $debug-color;
+      position: absolute;
+      font-size: 0.25em;
+      left: 0;
+      top: -1.5em;
+    }
+    &:before{ content: '.card' }
+  }
+
+
+  //OUTLINE LAYERS
+  .card:after,
+  .card .turner:after,
+  .card .flipper:after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0; left: 0;
+    border: 0.03em solid $debug-color;
+    border-radius: $card-radius;
+  	width: $card-width;
+  	height: $card-height;
+  	color: $debug-color;
+  }
+  
+  .card .turner:after,
+  .card .flipper:after{
+    border-style: dashed;
+    background: rgba(0,221,255,0.25);
+  }
+
+
+  // 3D prespective
   .card{
     transform:
       translateX(-1*$debug-gutter) translateY($debug-gutter) translateZ(0em)
@@ -106,14 +100,10 @@ $debug-gutter: 1em;
     }
     
   }
+
+
+  // FLIP TRANSFORMS
   
-}
-
-
-// FLIP TRANSFORMS
-
-.cards--debug{
-
   .card .flipper{
      transform: translateZ(2*$debug-gutter) rotateY(0deg);
   }
@@ -130,12 +120,10 @@ $debug-gutter: 1em;
   	transform: translateZ(2*$debug-gutter) rotateY(540deg);
   }
 
-}
 
 
-// TURN TRANSFORMS
 
-.cards--debug{
+  // TURN TRANSFORMS
 
   .card .turner{
      transform: translateZ($debug-gutter) rotateZ(0deg);
@@ -168,5 +156,6 @@ $debug-gutter: 1em;
   .card.turn-left.twist .turner{
      transform: translateZ($debug-gutter) rotateZ(270deg);
   }
+  
  
 }
