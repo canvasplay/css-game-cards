@@ -4,7 +4,7 @@ $debug-color: #00BCD4;
 $debug-gutter: 1em;
 
 
-.cards--debug{
+.cards-debug{
   perspective-origin: center center;
   perspective: 40em;
   
@@ -12,6 +12,7 @@ $debug-gutter: 1em;
     perspective: initial;
     transform-style: preserve-3d;
   }
+  
   
   .card,
   .turner,
@@ -29,10 +30,7 @@ $debug-gutter: 1em;
     //make both card sides' backface visible
     backface-visibility: visible;
   }
-
-
-
-
+  
   //LABELING LAYERS
   .card{
     &:before,
@@ -50,6 +48,8 @@ $debug-gutter: 1em;
       font-size: 0.25em;
       left: 0;
       top: -1.5em;
+      transition: opacity 0.3s;
+      opacity: 0;
     }
     &:before{ content: '.card' }
   }
@@ -68,6 +68,8 @@ $debug-gutter: 1em;
   	width: $card-width;
   	height: $card-height;
   	color: $debug-color;
+    transition: opacity 0.3s;
+    opacity: 0;
   }
   
   .card .turner:after,
@@ -75,87 +77,109 @@ $debug-gutter: 1em;
     border-style: dashed;
     background: rgba(0,221,255,0.25);
   }
-
-
-  // 3D prespective
-  .card{
-    transform:
-      translateX(-1*$debug-gutter) translateY($debug-gutter) translateZ(0em)
-      rotateX(30deg) rotateY(30deg) rotateZ(-20deg);
+  
+  &.cards-debug--enabled{
+  
+    //LABELING LAYERS
+    .card{
+      &:before,
+      .turner:before,
+      .flipper:before,
+      .back:before,
+      .face:before{
+        opacity: 1;
+      }
+    }
+  
+  
+    //OUTLINE LAYERS
+    .card:after,
+    .card .turner:after,
+    .card .flipper:after{
+      opacity: 1;
+    }
+  
+  
+    // 3D prespective
+    .card{
+      transform:
+        translateX(-1*$debug-gutter) translateY($debug-gutter) translateZ(0em)
+        rotateX(30deg) rotateY(30deg) rotateZ(-20deg);
+        
+      .turner{
+      	transform: translateZ($debug-gutter) rotateZ(0deg);
+      }
       
-    .turner{
-    	transform: translateZ($debug-gutter) rotateZ(0deg);
+      .flipper{
+      	transform: translateZ(2*$debug-gutter) rotateY(0deg);
+      }
+      
+      .back{
+        transform: translateZ(-1*$debug-gutter) rotateY(180deg);
+      }
+      
+      .face{
+        transform: translateZ($debug-gutter) rotateY(0deg);
+      }
+      
+    }
+  
+  
+    // FLIP TRANSFORMS
+    
+    .card .flipper{
+       transform: translateZ(2*$debug-gutter) rotateY(0deg);
     }
     
-    .flipper{
-    	transform: translateZ(2*$debug-gutter) rotateY(0deg);
+    .card.flip .flipper{
+    	transform: translateZ(2*$debug-gutter) rotateY(180deg);
+    }
+  
+    .card.spin .flipper{
+    	transform: translateZ(2*$debug-gutter) rotateY(360deg);
+    }
+  
+    .card.spin.flip .flipper{
+    	transform: translateZ(2*$debug-gutter) rotateY(540deg);
+    }
+  
+  
+  
+  
+    // TURN TRANSFORMS
+  
+    .card .turner{
+       transform: translateZ($debug-gutter) rotateZ(0deg);
     }
     
-    .back{
-      transform: translateZ(-1*$debug-gutter) rotateY(180deg);
+    .card.turn-right .turner{
+       transform: translateZ($debug-gutter) rotateZ(90deg);
     }
     
-    .face{
-      transform: translateZ($debug-gutter) rotateY(0deg);
+    .card.turn-down .turner{
+       transform: translateZ($debug-gutter) rotateZ(180deg);
+    }
+    
+    .card.turn-left .turner{
+       transform: translateZ($debug-gutter) rotateZ(-90deg);
+    }
+    
+    .card.twist .turner{
+       transform: translateZ($debug-gutter) rotateZ(360deg);
+    }
+    
+    .card.turn-right.twist .turner{
+       transform: translateZ($debug-gutter) rotateZ(450deg);
+    }
+    
+    .card.turn-down.twist .turner{
+       transform: translateZ($debug-gutter) rotateZ(540deg);
+    }
+    
+    .card.turn-left.twist .turner{
+       transform: translateZ($debug-gutter) rotateZ(270deg);
     }
     
   }
-
-
-  // FLIP TRANSFORMS
-  
-  .card .flipper{
-     transform: translateZ(2*$debug-gutter) rotateY(0deg);
-  }
-  
-  .card.flip .flipper{
-  	transform: translateZ(2*$debug-gutter) rotateY(180deg);
-  }
-
-  .card.spin .flipper{
-  	transform: translateZ(2*$debug-gutter) rotateY(360deg);
-  }
-
-  .card.spin.flip .flipper{
-  	transform: translateZ(2*$debug-gutter) rotateY(540deg);
-  }
-
-
-
-
-  // TURN TRANSFORMS
-
-  .card .turner{
-     transform: translateZ($debug-gutter) rotateZ(0deg);
-  }
-  
-  .card.turn-right .turner{
-     transform: translateZ($debug-gutter) rotateZ(90deg);
-  }
-  
-  .card.turn-down .turner{
-     transform: translateZ($debug-gutter) rotateZ(180deg);
-  }
-  
-  .card.turn-left .turner{
-     transform: translateZ($debug-gutter) rotateZ(-90deg);
-  }
-  
-  .card.twist .turner{
-     transform: translateZ($debug-gutter) rotateZ(360deg);
-  }
-  
-  .card.turn-right.twist .turner{
-     transform: translateZ($debug-gutter) rotateZ(450deg);
-  }
-  
-  .card.turn-down.twist .turner{
-     transform: translateZ($debug-gutter) rotateZ(540deg);
-  }
-  
-  .card.turn-left.twist .turner{
-     transform: translateZ($debug-gutter) rotateZ(270deg);
-  }
-  
  
 }
