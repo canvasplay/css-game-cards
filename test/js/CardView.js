@@ -51,8 +51,8 @@ var CardView = Backbone.View.extend({
 
     this.debug = !this.debug;
     
-    if(this.debug) this.$el.addClass('cards--debug');
-    else this.$el.removeClass('cards--debug');
+    if(this.debug) this.$el.addClass('cards-debug--enabled');
+    else this.$el.removeClass('cards-debug--enabled');
 
   }
 
