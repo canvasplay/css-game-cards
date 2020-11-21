@@ -1,26 +1,1413 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+  
+<head>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+  <!--<link href="../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />-->
+  <link href="../dist/game-cards.css" rel="stylesheet" />
+  <link href="../dist/themes/theme-debug.css" rel="stylesheet" />
+  <link href="../dist/themes/theme-uno.css" rel="stylesheet" />
+  <link href="../dist/themes/theme-poker.css" rel="stylesheet" />
+  <link href="../dist/themes/theme-cuatro.css" rel="stylesheet" />
+  <link href="css/styles.css" rel="stylesheet" />
+  
+</head>
+<body>
 
-	<head>
 
-		<!-- FORCING RENDERING ENGINE -->
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<script type="text/html" id="cards-template">
 
-		<!-- CHARSET ENCODING -->
-		<meta charset="utf-8">
+  <%
+  
+    var count = _.find(arguments,function(i){ return i.name=="count" });
+    count = (count.value)? parseInt(count.value) : 1;
+    
+    var classes = [];
+    
+    var mode = _.find(arguments,function(i){ return i.name=="mode" });
+    if(mode && mode.value) classes.push('cards-'+mode.value);
+    
+    var reverse = _.find(arguments,function(i){ return i.name=="reverse" });
+    if(reverse && reverse.value=='on') classes.push('cards--reverse');
+    
+    var random = _.find(arguments,function(i){ return i.name=="random" });
+    if(random && random.value=='on') classes.push('cards--random');
+    
+    var overlap = _.find(arguments,function(i){ return i.name=="overlap" });
+    if(overlap && overlap.value=='on') classes.push('cards--overlap');
+    
+    var align = _.find(arguments,function(i){ return i.name=="align" });
+    if(align && align.value && align.value!=='default') classes.push('cards--align-'+align.value);
+    
+  %>
+  
+  <div class="class-inspector">.<%= classes.join(' .') %></div>
+  <div class="cards <%= classes.join(' ') %>">
+  <% for(var i=0; i<count; i++){ %>
+  
+      <div class="card">
+          <div class="turner">
+          <div class="flipper">
+            <div class="back">
+              <strong>
+                <i class="material-icons">perm_identity</i>
+              </strong>
+            </div>
+            <div class="face">
+              <strong data-value="<%= i+1 %>"><%= i+1 %></strong>
+            </div>
+          </div>
+          </div>
+      </div>
+  
+  <% } %>
+  </div>
+  
+</script>
 
-		<!-- INLINE BASE64 DEFAULT FAVICON ( prevents annoying http requests for none existing favicon.ico ) -->
-		<link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
-		<!-- TITLE MAY BE OVERWRITTEN -->
-		<title>DOCS</title>
+<section class="hero">
+  
+  <div class="container">
+  <div class="wrapper">
+    <h1>CSS Game Cards is micro-framework for displaying interactive animated game cards.</h1>
+    <h2>This document describes how it works.</h2>
+    <p class="metadata">
+      Version 1.7.0 - MIT license
+    </p>
+  </div>
+  </div>
+  
+</section>
 
-		<!-- VIEWPORT: full width 1:1 not scalable -->
-		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-	<body>
-    <h1>HOME</h1>
-    <a href="index.html">home</a>
-    <a href="test.html">test</a>
-	</body>
+<section class="container">
 
+<h3>Card Element</h3>
+<div class="test-wrapper card-view cards cards-row cards-debug cards-debug--enabled">
+
+  <div class="class-inspector"></div>
+  
+  <label class="input-debug">
+    <input type="checkbox" value="true" name="3d" checked>
+    <i class="material-icons"></i>
+    <span>debug3D</span>
+  </label>
+  
+  
+  <div class="card">
+    <div class="turner">
+    <div class="flipper">
+      <div class="back">
+        <strong data-value="B">B</strong>
+      </div>
+      <div class="face">
+        <strong data-value="A">A</strong>
+      </div>
+    </div>
+    </div>
+  </div>
+
+</div>
+    
+<form class="card-form">
+
+  <!--
+  <div class="form-group">
+  <label>debug</label>
+  <div class="btn-group">
+    <label>
+      <input type="checkbox" name="3d" value="true" checked>
+      <i class="material-icons"></i>
+      <span>3D view</span>
+    </label>
+  </div>
+  </div>
+  -->
+
+  <div class="form-group">
+  <label>flipper</label>
+  <div class="btn-group">
+    <label>
+      <input type="checkbox" value="true" name="flip">
+      <i class="material-icons"></i>
+      <span>flip</span>
+    </label>
+    <label>
+      <input type="checkbox" value="true" name="spin">
+      <i class="material-icons"></i>
+      <span>spin</span>
+    </label>
+    <!--
+    <label>
+      <input type="checkbox" value="true" name="flipX">
+      <i class="material-icons"></i>
+      <span>flip-x</span>
+    </label>
+    <label>
+      <input type="checkbox" value="true" name="spinX">
+      <i class="material-icons"></i>
+      <span>spin-x</span>
+    </label>
+    -->
+  </div>
+  </div>
+
+  <div class="form-group">
+
+  <label>turner</label>
+
+
+  <div class="btn-group">
+
+    <label>
+      <input type="radio" name="turn" value="default" checked>
+      <i class="material-icons"></i>
+      <span>default</span>
+    </label>
+
+    <label>
+      <input type="radio" name="turn" value="left">
+      <i class="material-icons"></i>
+      <span>left</span>
+    </label>
+
+    <label>
+      <input type="radio" name="turn" value="right">
+      <i class="material-icons"></i>
+      <span>right</span>
+    </label>
+
+    <label>
+      <input type="radio" name="turn" value="down">
+      <i class="material-icons"></i>
+      <span>down</span>
+    </label>
+
+  </div>
+
+  <div class="btn-group">
+    <label>
+      <input type="checkbox" value="true" name="twist">
+      <i class="material-icons"></i>
+      <span>twist</span>
+    </label>
+  </div>
+
+  </div>
+ 
+</form>
+
+
+
+
+<h3>Cards Group</h3>
+<div class="test-wrapper cards-view">
+  
+</div>
+
+<form class="cards-form">
+  
+  <div class="buttons">
+    
+      <div class="form-group">
+        
+        <label>contents</label>
+        
+        <a href="javascript:;" class="button-count btn btn-xs btn-link" data-value="1">
+          <i class="material-icons">exposure_plus_1</i>
+        </a>
+        <a href="javascript:;" class="button-count btn btn-xs btn-link" data-value="-1">
+          <i class="material-icons">exposure_neg_1</i>
+        </a>
+        
+        <input name="count" type="hidden" value="3" />
+                                      
+      </div>
+  
+      <div class="form-group">
+
+        <label>mode</label>
+        
+        <div class="btn-group">
+          
+          <label>
+            <input type="radio" name="mode" value="row" checked>
+            <i class="material-icons"></i>
+            <span>row</span>
+          </label>
+
+          <label>
+            <input type="radio" name="mode" value="column">
+            <i class="material-icons"></i>
+            <span>column</span>
+          </label>
+
+          <label>
+            <input type="radio" name="mode" value="fan">
+            <i class="material-icons"></i>
+            <span>fan</span>
+          </label>
+          
+          <label>
+            <input type="radio" name="mode" value="deck">
+            <i class="material-icons"></i>
+            <span>deck</span>
+          </label>
+          
+        </div>
+        
+      </div>
+    
+      <div class="form-group">
+        <label>modifiers</label>
+        <div class="btn-group">
+          
+          <label>
+            <input type="checkbox" name="reverse">
+            <i class="material-icons"></i>
+            <span>reverse</span>
+          </label>
+          
+          <label>
+            <input type="checkbox" name="random">
+            <i class="material-icons"></i>
+            <span>random</span>
+          </label>
+
+          <label>
+            <input type="checkbox" name="overlap">
+            <i class="material-icons"></i>
+            <span>overlap</span>
+          </label>
+
+        </div>
+      </div>
+      
+      <div class="form-group">
+
+        <label>alignment</label>
+        
+        <div class="align-group">
+          
+          <label>
+            <input type="radio" name="align" value="top-left">
+            <i class="material-icons"></i>
+          </label>
+
+          <label>
+            <input type="radio" name="align" value="top">
+            <i class="material-icons"></i>
+          </label>
+
+          <label>
+            <input type="radio" name="align" value="top-right">
+            <i class="material-icons"></i>
+          </label>
+          
+          <br>
+          
+          <label>
+            <input type="radio" name="align" value="left">
+            <i class="material-icons"></i>
+          </label>
+
+          <label>
+            <!--<input type="radio" name="align" value="center">-->
+            <input type="radio" name="align" value="default" checked>
+            <i class="material-icons"></i>
+          </label>
+
+          <label>
+            <input type="radio" name="align" value="right">
+            <i class="material-icons"></i>
+          </label>
+          
+          <br>
+          
+          <label>
+            <input type="radio" name="align" value="bottom-left">
+            <i class="material-icons"></i>
+          </label>
+
+          <label>
+            <input type="radio" name="align" value="bottom">
+            <i class="material-icons"></i>
+          </label>
+
+          <label>
+            <input type="radio" name="align" value="bottom-right">
+            <i class="material-icons"></i>
+          </label>
+          
+        </div>
+        
+      </div>
+    
+    
+  </div>
+  
+</form>
+
+
+
+<div class="game-cards cards-theme--uno">
+  <h1>Uno Cards</h1>
+  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <div class="cards cards-fan">
+    
+    <div class="card face red">
+      <div class="value value-up"><span>0</span></div>
+      <div class="value"><span>0</span></div>
+      <div class="value value-down"><span>0</span></div>
+    </div>
+    <div class="card back">
+      <span><span>UNO</span></span>
+    </div>
+    
+    <!--
+    <div class="card  red">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>0</span></div>
+          <div class="value"><span>0</span></div>
+          <div class="value value-down"><span>0</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  red">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>1</span></div>
+          <div class="value"><span>1</span></div>
+          <div class="value value-down"><span>1</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    -->
+    <div class="card flip red">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>2</span></div>
+          <div class="value"><span>2</span></div>
+          <div class="value value-down"><span>2</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card flip red">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>3</span></div>
+          <div class="value"><span>3</span></div>
+          <div class="value value-down"><span>3</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  red">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>4</span></div>
+          <div class="value"><span>4</span></div>
+          <div class="value value-down"><span>4</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  red">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>5</span></div>
+          <div class="value"><span>5</span></div>
+          <div class="value value-down"><span>5</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  red">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>6</span></div>
+          <div class="value"><span>6</span></div>
+          <div class="value value-down"><span>6</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  red">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>7</span></div>
+          <div class="value"><span>7</span></div>
+          <div class="value value-down"><span>7</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card flip red">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>8</span></div>
+          <div class="value"><span>8</span></div>
+          <div class="value value-down"><span>8</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  red">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>9</span></div>
+          <div class="value"><span>9</span></div>
+          <div class="value value-down"><span>9</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+  </div><br/>
+  <div class="cards cards-fan">
+    <div class="card  yellow">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>0</span></div>
+          <div class="value"><span>0</span></div>
+          <div class="value value-down"><span>0</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  yellow">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>1</span></div>
+          <div class="value"><span>1</span></div>
+          <div class="value value-down"><span>1</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  yellow">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>2</span></div>
+          <div class="value"><span>2</span></div>
+          <div class="value value-down"><span>2</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card flip yellow">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>3</span></div>
+          <div class="value"><span>3</span></div>
+          <div class="value value-down"><span>3</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  yellow">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>4</span></div>
+          <div class="value"><span>4</span></div>
+          <div class="value value-down"><span>4</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  yellow">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>5</span></div>
+          <div class="value"><span>5</span></div>
+          <div class="value value-down"><span>5</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  yellow">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>6</span></div>
+          <div class="value"><span>6</span></div>
+          <div class="value value-down"><span>6</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  yellow">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>7</span></div>
+          <div class="value"><span>7</span></div>
+          <div class="value value-down"><span>7</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card flip yellow">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>8</span></div>
+          <div class="value"><span>8</span></div>
+          <div class="value value-down"><span>8</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  yellow">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>9</span></div>
+          <div class="value"><span>9</span></div>
+          <div class="value value-down"><span>9</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+  </div><br/>
+  <div class="cards cards-fan">
+    <div class="card  green">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>0</span></div>
+          <div class="value"><span>0</span></div>
+          <div class="value value-down"><span>0</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  green">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>1</span></div>
+          <div class="value"><span>1</span></div>
+          <div class="value value-down"><span>1</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  green">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>2</span></div>
+          <div class="value"><span>2</span></div>
+          <div class="value value-down"><span>2</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card flip green">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>3</span></div>
+          <div class="value"><span>3</span></div>
+          <div class="value value-down"><span>3</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  green">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>4</span></div>
+          <div class="value"><span>4</span></div>
+          <div class="value value-down"><span>4</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  green">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>5</span></div>
+          <div class="value"><span>5</span></div>
+          <div class="value value-down"><span>5</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  green">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>6</span></div>
+          <div class="value"><span>6</span></div>
+          <div class="value value-down"><span>6</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  green">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>7</span></div>
+          <div class="value"><span>7</span></div>
+          <div class="value value-down"><span>7</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card flip green">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>8</span></div>
+          <div class="value"><span>8</span></div>
+          <div class="value value-down"><span>8</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  green">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>9</span></div>
+          <div class="value"><span>9</span></div>
+          <div class="value value-down"><span>9</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+  </div><br/>
+  <div class="cards cards-fan">
+    <div class="card  blue">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>0</span></div>
+          <div class="value"><span>0</span></div>
+          <div class="value value-down"><span>0</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  blue">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>1</span></div>
+          <div class="value"><span>1</span></div>
+          <div class="value value-down"><span>1</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card flip blue">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>2</span></div>
+          <div class="value"><span>2</span></div>
+          <div class="value value-down"><span>2</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  blue">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>3</span></div>
+          <div class="value"><span>3</span></div>
+          <div class="value value-down"><span>3</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card flip blue">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>4</span></div>
+          <div class="value"><span>4</span></div>
+          <div class="value value-down"><span>4</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  blue">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>5</span></div>
+          <div class="value"><span>5</span></div>
+          <div class="value value-down"><span>5</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  blue">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>6</span></div>
+          <div class="value"><span>6</span></div>
+          <div class="value value-down"><span>6</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card  blue">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>7</span></div>
+          <div class="value"><span>7</span></div>
+          <div class="value value-down"><span>7</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card flip blue">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>8</span></div>
+          <div class="value"><span>8</span></div>
+          <div class="value value-down"><span>8</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+    <div class="card flip blue">
+      <div class="flipper">
+        <div class="face">
+          <div class="value value-up"><span>9</span></div>
+          <div class="value"><span>9</span></div>
+          <div class="value value-down"><span>9</span></div>
+        </div>
+        <div class="back"><span><span>UNO</span></span></div>
+      </div>
+    </div>
+  </div><br/>
+</div>
+
+
+
+
+
+<div class="game-cards cards-theme--poker">
+  <h1>Poker Cards</h1>
+  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+  <div class="cards cards-fan">
+    
+    <div class="card face diamonds rank-A">
+      <div class="suit"></div>
+      <div class="rank">A</div>
+    </div>
+
+    <!--
+    <div class="card diamonds  rank-A">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">A</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    -->
+    <div class="card diamonds  rank-2">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">2</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card diamonds  rank-3">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">3</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <!--
+    <div class="card diamonds  rank-4">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">4</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card diamonds  rank-5">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">5</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card diamonds  rank-6">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">6</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    -->
+    <div class="card diamonds  rank-7">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">7</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card diamonds  rank-8">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">8</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card diamonds  rank-9">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">9</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card diamonds  rank-10">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">10</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card diamonds  rank-J">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">J</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card diamonds  rank-Q">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">Q</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card diamonds  rank-K">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">K</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="cards cards-fan">
+    <div class="card spades  rank-A">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">A</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card spades  rank-2">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">2</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card spades  rank-3">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">3</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <!--
+    <div class="card spades  rank-4">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">4</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card spades  rank-5">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">5</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card spades  rank-6">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">6</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    -->
+    <div class="card spades  rank-7">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">7</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card spades  rank-8">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">8</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card spades  rank-9">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">9</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card spades  rank-10">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">10</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card spades  rank-J">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">J</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card spades  rank-Q">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">Q</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card spades  rank-K">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">K</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="cards cards-fan">
+    <div class="card hearts  rank-A">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">A</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card hearts  rank-2">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">2</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card hearts  rank-3">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">3</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <!--
+    <div class="card hearts  rank-4">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">4</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card hearts  rank-5">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">5</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card hearts  rank-6">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">6</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    -->
+    <div class="card hearts  rank-7">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">7</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card hearts  rank-8">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">8</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card hearts  rank-9">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">9</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card hearts  rank-10">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">10</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card hearts  rank-J">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">J</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card hearts  rank-Q">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">Q</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card hearts  rank-K">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">K</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="cards cards-fan">
+    <div class="card clubs  rank-A">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">A</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card clubs  rank-2">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">2</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card clubs  rank-3">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">3</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <!--
+    <div class="card clubs  rank-4">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">4</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card clubs  rank-5">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">5</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card clubs  rank-6">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">6</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    -->
+    <div class="card clubs  rank-7">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">7</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card clubs  rank-8">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">8</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card clubs  rank-9">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">9</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card clubs  rank-10">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">10</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card clubs  rank-J">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">J</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card clubs  rank-Q">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">Q</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <div class="card clubs  rank-K">
+      <div class="flipper">
+        <div class="face">
+          <div class="suit"></div>
+          <div class="rank">K</div>
+        </div>
+        <div class="back"></div>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>
+
+
+
+
+<div class="game-cards cards-theme--cuatro">
+  <h1>Cuatro Letras</h1>
+  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  
+  <div class="cards cards-fan">
+    
+    <div class="card back">
+      <span>4</span>
+    </div>
+    <!--
+    <div class="card flip">
+      <div class="flipper">
+        <div class="face"><span>C</span></div>
+        <div class="back"><span>4</span></div>
+      </div>
+    </div>
+    -->
+    <div class="card flip">
+      <div class="flipper">
+        <div class="face"><span>U</span></div>
+        <div class="back"><span>4</span></div>
+      </div>
+    </div>
+    <div class="card flip">
+      <div class="flipper">
+        <div class="face"><span>A</span></div>
+        <div class="back"><span>4</span></div>
+      </div>
+    </div>
+    <div class="card flip">
+      <div class="flipper">
+        <div class="face"><span>T</span></div>
+        <div class="back"><span>4</span></div>
+      </div>
+    </div>
+    <div class="card flip">
+      <div class="flipper">
+        <div class="face"><span>R</span></div>
+        <div class="back"><span>4</span></div>
+      </div>
+    </div>
+    <div class="card flip">
+      <div class="flipper">
+        <div class="face"><span>O</span></div>
+        <div class="back"><span>4</span></div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="cards cards-fan">
+    
+    <div class="card face">
+      <span>L</span>
+    </div>
+    
+    <!--
+    <div class="card">
+      <div class="flipper">
+        <div class="face"><span>L</span></div>
+        <div class="back"><span>4</span></div>
+      </div>
+    </div>
+    -->
+    <div class="card">
+      <div class="flipper">
+        <div class="face"><span>E</span></div>
+        <div class="back"><span>4</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="flipper">
+        <div class="face"><span>T</span></div>
+        <div class="back"><span>4</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="flipper">
+        <div class="face"><span>R</span></div>
+        <div class="back"><span>4</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="flipper">
+        <div class="face"><span>A</span></div>
+        <div class="back"><span>4</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="flipper">
+        <div class="face"><span>S</span></div>
+        <div class="back"><span>4</span></div>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>
+
+<div>
+  
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <span class="card"><span class="face">1</span></span> <span class="card"><span class="face">2</span></span> <span class="card"><span class="face">3</span></span>, consectetuer adipiscing elit <span class="card"><span class="face">J</span></span>, <span class="card"><span class="face">J</span></span>. Lorem ipsum <span class="card"><span class="face">J</span></span> <span class="card"><span class="face">Q</span></span> <span class="card"><span class="face">K</span></span> <span class="card"><span class="face">A</span></span> are non-numeric cards.
+  </p>
+  
+</div>
+
+</section>
+
+<script src="lib/jquery.min.js"></script>
+<script src="lib/underscore-min.js"></script>
+<script src="lib/backbone-min.js"></script>
+
+
+<script src="js/CardModel.js"></script>
+<script src="js/CardView.js"></script>
+<script src="js/CardFormView.js"></script>
+
+<script src="js/CardsModel.js"></script>
+<script src="js/CardsView.js"></script>
+<script src="js/CardsFormView.js"></script>
+
+<script src="js/app.js"></script>
+
+</body>
 </html>
