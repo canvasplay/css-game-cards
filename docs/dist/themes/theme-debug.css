@@ -1,0 +1,101 @@
+.cards-debug {
+  perspective-origin: center center;
+  perspective: 40em; }
+  .cards-debug .card {
+    perspective: initial;
+    transform-style: preserve-3d; }
+  .cards-debug .card,
+  .cards-debug .turner,
+  .cards-debug .flipper {
+    color: #00BCD4; }
+  .cards-debug .card .back,
+  .cards-debug .card .face {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    backface-visibility: visible; }
+  .cards-debug .card:before,
+  .cards-debug .card .turner:before,
+  .cards-debug .card .flipper:before,
+  .cards-debug .card .back:before,
+  .cards-debug .card .face:before {
+    content: "." attr(class);
+    font-family: Consolas, monaco, monospace;
+    display: inline-block;
+    line-height: 1;
+    font-weight: normal;
+    color: #00BCD4;
+    position: absolute;
+    font-size: 0.25em;
+    left: 0;
+    top: -1.5em;
+    transition: opacity 0.3s;
+    opacity: 0; }
+  .cards-debug .card:before {
+    content: '.card'; }
+  .cards-debug .card:after,
+  .cards-debug .card .turner:after,
+  .cards-debug .card .flipper:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0.03em solid #00BCD4;
+    border-radius: 0.1em;
+    width: 1em;
+    height: 1.5em;
+    color: #00BCD4;
+    transition: opacity 0.3s;
+    opacity: 0; }
+  .cards-debug .card .turner:after,
+  .cards-debug .card .flipper:after {
+    border-style: dashed;
+    background: rgba(0, 221, 255, 0.25); }
+  .cards-debug.cards-debug--enabled .card:before,
+  .cards-debug.cards-debug--enabled .card .turner:before,
+  .cards-debug.cards-debug--enabled .card .flipper:before,
+  .cards-debug.cards-debug--enabled .card .back:before,
+  .cards-debug.cards-debug--enabled .card .face:before {
+    opacity: 1; }
+  .cards-debug.cards-debug--enabled .card:after,
+  .cards-debug.cards-debug--enabled .card .turner:after,
+  .cards-debug.cards-debug--enabled .card .flipper:after {
+    opacity: 1; }
+  .cards-debug.cards-debug--enabled .card {
+    transform: translateX(-1em) translateY(1em) translateZ(0em) rotateX(30deg) rotateY(30deg) rotateZ(-20deg); }
+    .cards-debug.cards-debug--enabled .card .turner {
+      transform: translateZ(1em) rotateZ(0deg); }
+    .cards-debug.cards-debug--enabled .card .flipper {
+      transform: translateZ(2em) rotateY(0deg); }
+    .cards-debug.cards-debug--enabled .card .back {
+      transform: translateZ(-1em) rotateY(180deg); }
+    .cards-debug.cards-debug--enabled .card .face {
+      transform: translateZ(1em) rotateY(0deg); }
+  .cards-debug.cards-debug--enabled .card .flipper {
+    transform: translateZ(2em) rotateY(0deg); }
+  .cards-debug.cards-debug--enabled .card.flip .flipper {
+    transform: translateZ(2em) rotateY(180deg); }
+  .cards-debug.cards-debug--enabled .card.spin .flipper {
+    transform: translateZ(2em) rotateY(360deg); }
+  .cards-debug.cards-debug--enabled .card.spin.flip .flipper {
+    transform: translateZ(2em) rotateY(540deg); }
+  .cards-debug.cards-debug--enabled .card .turner {
+    transform: translateZ(1em) rotateZ(0deg); }
+  .cards-debug.cards-debug--enabled .card.turn-right .turner {
+    transform: translateZ(1em) rotateZ(90deg); }
+  .cards-debug.cards-debug--enabled .card.turn-down .turner {
+    transform: translateZ(1em) rotateZ(180deg); }
+  .cards-debug.cards-debug--enabled .card.turn-left .turner {
+    transform: translateZ(1em) rotateZ(-90deg); }
+  .cards-debug.cards-debug--enabled .card.twist .turner {
+    transform: translateZ(1em) rotateZ(360deg); }
+  .cards-debug.cards-debug--enabled .card.turn-right.twist .turner {
+    transform: translateZ(1em) rotateZ(450deg); }
+  .cards-debug.cards-debug--enabled .card.turn-down.twist .turner {
+    transform: translateZ(1em) rotateZ(540deg); }
+  .cards-debug.cards-debug--enabled .card.turn-left.twist .turner {
+    transform: translateZ(1em) rotateZ(270deg); }
+
+/*# sourceMappingURL=theme-debug.css.map */
